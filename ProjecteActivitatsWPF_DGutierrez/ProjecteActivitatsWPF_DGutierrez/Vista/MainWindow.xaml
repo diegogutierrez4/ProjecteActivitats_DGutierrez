@@ -1,12 +1,124 @@
-﻿<Window x:Class="ProjecteActivitatsWPF_DGutierrez.MainWindow"
+﻿<Window x:Class="ProjecteActivitatsWPF_DGutierrez.Vista.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjecteActivitatsWPF_DGutierrez"
+        Title="Activitats Diego" Height="500" Width="800"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="10 0 0 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#3AA9AD" Offset="0"/>
+                    <GradientStop Color="#3AA9AD" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Canvas>
+                    <Polygon Points="0,20 230,140 0, 270" Fill="#4EB1B6"/>
+                    <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6"/>
+                    <Ellipse Margin="250 450 0 0" Fill="#4EB1B6" Height="40" Width="40"/>
+                    <Ellipse Margin="50 400 0 0" Fill="#4EB1B6" Height="20" Width="20"/>
+                    <Ellipse Fill="#4EB1B6" Height="68" Width="68" HorizontalAlignment="Left" Canvas.Left="81" Canvas.Top="-45" VerticalAlignment="Top"/>
+                    <Ellipse Fill="#4EB1B6" Height="20" Width="20" Canvas.Left="230" Canvas.Top="70" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                </Canvas>
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Registra't!" Style="{StaticResource titolText}"/>
+                    <TextBlock Text="Entra les teves dades per tenir accés a les millors activitats de la zona!" Style="{StaticResource textNormal}" Opacity="0.8" Margin="20 30"/>
+                    <Button x:Name="buttonRegistre" Content="REGISTRE" Style="{StaticResource botóRegistre}" Click="buttonRegistre_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Background="White" Grid.Column="1" CornerRadius="0 10 10 0" >
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Inicia sessió a l'aplicació!" Style="{StaticResource titolText}" Foreground="#3AA9AD"/>
+                <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource botóIconesIniciSessió}">
+                        <Image Source="/Imatges/google_logo.png" Width="22" Height="22"/>
+                    </Button>
+
+                    <Button Style="{StaticResource botóIconesIniciSessió}">
+                        <Image Source="/Imatges/instagram_logo.png" Width="22" Height="22"/>
+                    </Button>
+
+                    <Button Style="{StaticResource botóIconesIniciSessió}">
+                        <Image Source="/Imatges/facebook_logo.png" Width="22" Height="22"/>
+                    </Button>
+                </StackPanel>
+
+                <TextBlock Text="o entra amb el teu compte:" Style="{StaticResource textNormal}" Foreground="#878787" Margin="0 10 0 15"/>
+
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Imatges/usuari_logo.png" Height="24" Opacity="0.4"/>
+                        <TextBox x:Name="textBox_NomUsuari" TextChanged="textBox_NomUsuari_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Imatges/contra_logo.png" Height="24" Opacity="0.4"/>
+                        <PasswordBox x:Name="passwordBox_Contrasenya" PasswordChanged="passwordBox_Contrasenya_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Button x:Name="buttonIniciarSessio" Content="Entra" Click="buttonIniciarSessio_Click" Style="{StaticResource botóIniciarSessio}"/>
+            </StackPanel>
+        </Border>
+
+        <Button x:Name="buttonMinimitzar"
+            Background="#FFEAEAEA"
+            BorderThickness="0"
+            Content="-"
+            Foreground="Black" 
+            Margin="385,10,55,0" 
+            Click="buttonMinimitzarClick"
+            Cursor="Hand" FontWeight="Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="21" Grid.Column="1">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="buttonSortir"
+            Background="#3AA9AD"
+            BorderThickness="0"
+            Content="X"
+            Foreground="White" 
+            Margin="430,10,10,0" 
+            Click="buttonSortirClick"
+            Cursor="Hand" FontWeight="Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="21"
+                            >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
+
 </Window>

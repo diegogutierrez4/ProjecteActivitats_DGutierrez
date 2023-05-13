@@ -8,8 +8,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Imatges\contra_logo.png" />
+    <None Remove="Imatges\facebook_logo.png" />
+    <None Remove="Imatges\google_logo.png" />
+    <None Remove="Imatges\instagram_logo.png" />
+    <None Remove="Imatges\logoApp.png" />
+    <None Remove="Imatges\usuari_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Accés a dades\" />
+    <Folder Include="Icones\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imatges\contra_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\facebook_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\google_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\instagram_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\logoApp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\usuari_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

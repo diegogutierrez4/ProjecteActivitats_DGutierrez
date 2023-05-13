@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjecteActivitatsWPF_DGutierrez
+namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,45 @@ namespace ProjecteActivitatsWPF_DGutierrez
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        // Tancar app
+        private void buttonSortirClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+
+        }
+
+        // Minimitzar
+        private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+
+        }
+
+        // Dades inici de sessió
+
+
+        private void textBox_NomUsuari_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void passwordBox_Contrasenya_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Registre
+        private void buttonRegistre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Iniciar sessió
+        private void buttonIniciarSessio_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
