@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -20,16 +22,24 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     /// </summary>
     public partial class MainWindow : Window
     {
+        ConnexioBD connexio;
         public MainWindow()
         {
             InitializeComponent();
+            MySqlConnection mySqlConnection = new MySqlConnection();
+            connexio = new ConnexioBD(mySqlConnection, "localhost",  "3306", "root", "", "projectedb");
+            MySqlConnection connexioBD = connexio.Connectar();
+
+            string sqlQuery = "SELECT * FROM usuaris";
+            MySqlCommand command = new MySqlCommand(sqlQuery, connexioBD);
+
         }
 
         // Tancar app
         private void buttonSortirClick(object sender, RoutedEventArgs e)
         {
+            connexio.Desconnectar();
             Application.Current.Shutdown();
-
         }
 
         // Minimitzar

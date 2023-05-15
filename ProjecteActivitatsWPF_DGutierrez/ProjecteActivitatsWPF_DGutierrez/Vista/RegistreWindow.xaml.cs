@@ -41,40 +41,80 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         {
 
         }
-
+        private void textBox_Nom_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_Nom.Text = string.Empty;
+        }
+        // -
         private void textBox_Cognom_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        private void textBox_Cognom_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_Cognom.Text = string.Empty;
+        }
+        // -
 
         private void textBox_NomUsuari_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
+        private void textBox_NomUsuari_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_NomUsuari.Text = string.Empty;
+        }
+        //-
         private void textBox_DataNaix_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        private void textBox_DataNaix_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_DataNaix.Text = string.Empty;
+        }
+        // -
 
         private void textBox_Correu_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        private void textBox_Correu_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_Correu.Text = string.Empty;
+        }
+        // -
 
         private void textBox_Contrasenya1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        private void textBox_Contrasenya1_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_Contrasenya1.Text = string.Empty;
+        }
+        // -
 
         private void textBox_Contrasenya2_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        private void textBox_Contrasenya2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_Contrasenya2.Text = string.Empty;
+        }
+        // -
 
         private void buttonRegistre_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void button_TornarIniciSessio_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

@@ -32,6 +32,14 @@
                     <Ellipse Margin="50 400 0 0" Fill="#4EB1B6" Height="20" Width="20"/>
                     <Ellipse Fill="#4EB1B6" Height="68" Width="68" HorizontalAlignment="Left" Canvas.Left="81" Canvas.Top="-45" VerticalAlignment="Top"/>
                     <Ellipse Fill="#4EB1B6" Height="28" Width="28" Canvas.Left="145" Canvas.Top="236" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button x:Name="button_TornarIniciSessio" Style="{StaticResource botóNoSeleccionable}" Height="55" Width="62" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="38" Canvas.Top="410" Click="button_TornarIniciSessio_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Image Source="/Imatges/return.png" Width="48" Height="45" OpacityMask="Black" Opacity="0.77"/>
+                    </Button>
                 </Canvas>
 
                 <StackPanel VerticalAlignment="Center"/>
@@ -59,7 +67,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/usuari_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_Nom" TextChanged="textBox_Nom_TextChanged" Style="{StaticResource textBox}" Text="Nom"/>
+                            <TextBox x:Name="textBox_Nom" TextChanged="textBox_Nom_TextChanged" Style="{StaticResource textBox}" Text="Nom" GotFocus="textBox_Nom_GotFocus" Opacity="0.4"/>
                         </Grid>
                     </Border>
 
@@ -72,7 +80,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/usuari_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_Cognom" TextChanged="textBox_Cognom_TextChanged" Style="{StaticResource textBox}" Text="Cognom"/>
+                            <TextBox x:Name="textBox_Cognom" TextChanged="textBox_Cognom_TextChanged" Style="{StaticResource textBox}" Text="Cognom" Opacity="0.4" GotFocus="textBox_Cognom_GotFocus"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -92,11 +100,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/usuari_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_NomUsuari" TextChanged="textBox_NomUsuari_TextChanged" Style="{StaticResource textBox}" Text="Nom d'usuari">
-                                <TextBox.ToolTip>
-                                    <ToolTip Content="Introduce el nombre de usuario"/>
-                                </TextBox.ToolTip>
-                            </TextBox>
+                            <TextBox x:Name="textBox_NomUsuari" TextChanged="textBox_NomUsuari_TextChanged" Style="{StaticResource textBox}" Text="Nom d'usuari" Opacity="0.4" GotFocus="textBox_NomUsuari_GotFocus"/>
                         </Grid>
                     </Border>
 
@@ -110,7 +114,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/dataNaix_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_DataNaix" TextChanged="textBox_DataNaix_TextChanged" Style="{StaticResource textBox}" Text="Data de naixement"/>
+                            <TextBox x:Name="textBox_DataNaix" TextChanged="textBox_DataNaix_TextChanged" Style="{StaticResource textBox}" Text="Data de naixement" Opacity="0.4" GotFocus="textBox_DataNaix_GotFocus"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -124,7 +128,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/Imatges/correu_logo.png" Height="24" Opacity="0.4"/>
-                        <TextBox x:Name="textBox_Correu" TextChanged="textBox_Correu_TextChanged" Style="{StaticResource textBox}" Text="Correu electrònic"/>
+                        <TextBox x:Name="textBox_Correu" TextChanged="textBox_Correu_TextChanged" Style="{StaticResource textBox}" Text="Correu electrònic" Opacity="0.4" GotFocus="textBox_Correu_GotFocus"/>
                     </Grid>
                 </Border>
 
@@ -143,7 +147,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/contra_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_Contrasenya1" TextChanged="textBox_Contrasenya1_TextChanged" Style="{StaticResource textBox}" Text="Contrasenya"/>
+                            <TextBox x:Name="textBox_Contrasenya1" TextChanged="textBox_Contrasenya1_TextChanged" Style="{StaticResource textBox}" Text="Contrasenya" Opacity="0.4" GotFocus="textBox_Contrasenya1_GotFocus"/>
                         </Grid>
                     </Border>
 
@@ -156,7 +160,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/contra_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_Contrasenya2" TextChanged="textBox_Contrasenya2_TextChanged" Style="{StaticResource textBox}" Text="Confirma contrasenya"/>
+                            <TextBox x:Name="textBox_Contrasenya2" TextChanged="textBox_Contrasenya2_TextChanged" Style="{StaticResource textBox}" Text="Confirma contrasenya" Opacity="0.4" GotFocus="textBox_Contrasenya2_GotFocus"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -166,14 +170,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="buttonRegistre" Content="ENTRA" Click="buttonRegistre_Click" Style="{StaticResource botóIniciarSessio}"/>
-
-                    <Button x:Name="button_EliminarDades" Margin="120,28,450,8" Style="{StaticResource botóIconesIniciSessió2}">
-                        <Image Source="/Imatges/basura_logo.png" Width="30" Height="30" OpacityMask="Black" Opacity="0.77"/>
-                    </Button>
                 </Grid>
             </StackPanel>
         </Border>
-        
+
         <Button x:Name="buttonMinimitzar"
             Background="#FFEAEAEA"
             BorderThickness="0"
@@ -189,7 +189,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        
+
         <Button x:Name="buttonSortir"
             Background="#3AA9AD"
             BorderThickness="0"

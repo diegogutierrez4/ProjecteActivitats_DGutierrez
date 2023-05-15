@@ -9,20 +9,32 @@
 
   <ItemGroup>
     <None Remove="Imatges\contra_logo.png" />
+    <None Remove="Imatges\correu_logo.png" />
+    <None Remove="Imatges\dataNaix_logo.png" />
     <None Remove="Imatges\facebook_logo.png" />
     <None Remove="Imatges\google_logo.png" />
     <None Remove="Imatges\instagram_logo.png" />
     <None Remove="Imatges\logoApp.png" />
+    <None Remove="Imatges\return.png" />
     <None Remove="Imatges\usuari_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Accés a dades\" />
     <Folder Include="Icones\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Imatges\contra_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\correu_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\dataNaix_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\facebook_logo.png">
@@ -32,6 +44,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\instagram_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\return.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\usuari_logo.png">
