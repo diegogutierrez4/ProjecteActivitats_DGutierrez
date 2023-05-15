@@ -7,7 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Vista\RegistreWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Vista\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\RegistreWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

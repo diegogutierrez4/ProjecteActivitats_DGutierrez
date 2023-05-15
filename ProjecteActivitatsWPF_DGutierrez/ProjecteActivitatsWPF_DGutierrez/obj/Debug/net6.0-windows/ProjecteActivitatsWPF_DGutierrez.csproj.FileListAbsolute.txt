@@ -20,3 +20,5 @@ C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteA
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\MainWindow.g.cs
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\ProjecteActivitatsWPF_DGutierrez_MarkupCompile.lref
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\App.baml
+C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\RegistreWindow.g.cs
+C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\RegistreWindow.baml

@@ -36,7 +36,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
-
         }
 
         // Dades inici de sessió
@@ -55,7 +54,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         // Registre
         private void buttonRegistre_Click(object sender, RoutedEventArgs e)
         {
-
+            RegistreWindow pantallaRegistre = new RegistreWindow();
+            pantallaRegistre.Show();
+            this.Close();
         }
 
         // Iniciar sessió

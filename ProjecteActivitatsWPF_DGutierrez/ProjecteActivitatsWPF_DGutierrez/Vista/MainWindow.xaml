@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="Activitats Diego" Height="500" Width="800"
+        Title="GuiaMe" Height="500" Width="800"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -27,11 +27,11 @@
             <Grid>
                 <Canvas>
                     <Polygon Points="0,20 230,140 0, 270" Fill="#4EB1B6"/>
-                    <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6"/>
+                    <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6" HorizontalAlignment="Center" Height="480" Canvas.Top="10" VerticalAlignment="Top"/>
                     <Ellipse Margin="250 450 0 0" Fill="#4EB1B6" Height="40" Width="40"/>
                     <Ellipse Margin="50 400 0 0" Fill="#4EB1B6" Height="20" Width="20"/>
                     <Ellipse Fill="#4EB1B6" Height="68" Width="68" HorizontalAlignment="Left" Canvas.Left="81" Canvas.Top="-45" VerticalAlignment="Top"/>
-                    <Ellipse Fill="#4EB1B6" Height="20" Width="20" Canvas.Left="230" Canvas.Top="70" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Ellipse Fill="#4EB1B6" Height="28" Width="28" Canvas.Left="230" Canvas.Top="62" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Canvas>
 
                 <StackPanel VerticalAlignment="Center">
@@ -47,15 +47,15 @@
                 <TextBlock Text="Inicia sessió a l'aplicació!" Style="{StaticResource titolText}" Foreground="#3AA9AD"/>
                 <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
                     <Button Style="{StaticResource botóIconesIniciSessió}">
-                        <Image Source="/Imatges/google_logo.png" Width="22" Height="22"/>
+                        <Image Source="/Imatges/google_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
 
                     <Button Style="{StaticResource botóIconesIniciSessió}">
-                        <Image Source="/Imatges/instagram_logo.png" Width="22" Height="22"/>
+                        <Image Source="/Imatges/instagram_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
 
                     <Button Style="{StaticResource botóIconesIniciSessió}">
-                        <Image Source="/Imatges/facebook_logo.png" Width="22" Height="22"/>
+                        <Image Source="/Imatges/facebook_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
                 </StackPanel>
 
@@ -85,7 +85,7 @@
                     </Grid>
                 </Border>
 
-                <Button x:Name="buttonIniciarSessio" Content="Entra" Click="buttonIniciarSessio_Click" Style="{StaticResource botóIniciarSessio}"/>
+                <Button x:Name="buttonIniciarSessio" Content="ENTRA" Click="buttonIniciarSessio_Click" Style="{StaticResource botóIniciarSessio}"/>
             </StackPanel>
         </Border>
 
