@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Model
 {
-    class Usuari
+    public class Usuari
     {
         // Atributs
         private int id;
@@ -19,11 +19,23 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         private DateTime dataNaix;
         private bool modeCreador;
         private List<Activitat> llistaActivitats;
-        private List<Reserva> llsitaReserves;
+        private List<Reserva> llistaReserves;
 
         // Constructors
         public Usuari() { }
-        public Usuari(int id, string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador, List<Activitat> llistaActivitats, List<Reserva> llsitaReserves)
+        public Usuari(int id, string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador)
+        {
+            this.Id = id;
+            this.Nom = nom;
+            this.Cognom = cognom;
+            this.NomUsuari = nomUsuari;
+            this.Correu = correu;
+            this.Contrasenya = contrasenya;
+            this.DataNaix = dataNaix;
+            this.ModeCreador = modeCreador;
+        }
+
+        public Usuari(int id, string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador, List<Activitat> llistaActivitats, List<Reserva> llistaReserves)
         {
             this.Id = id;
             this.Nom = nom;
@@ -34,7 +46,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
             this.DataNaix = dataNaix;
             this.ModeCreador = modeCreador;
             this.LlistaActivitats = llistaActivitats;
-            this.LlsitaReserves = llsitaReserves;
+            this.LlistaReserves = llistaReserves;
         }
 
         // Propietats
@@ -47,6 +59,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public DateTime DataNaix { get => dataNaix; set => dataNaix = value; }
         public bool ModeCreador { get => modeCreador; set => modeCreador = value; }
         public List<Activitat> LlistaActivitats { get => llistaActivitats; set => llistaActivitats = value; }
-        public List<Reserva> LlsitaReserves { get => llsitaReserves; set => llsitaReserves = value; }
+        public List<Reserva> LlistaReserves { get => llistaReserves; set => llistaReserves = value; }
     }
 }

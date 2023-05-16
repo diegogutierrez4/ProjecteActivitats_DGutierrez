@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Model
 {
-    enum Categoria
+    public enum Categoria
     {
         EsportsExtrems,
         Cultural,
         Gastronòmica,
         Ecoturisme
     }
-    class Activitat
+    public class Activitat
     {
         // Atributs
         private int id;
@@ -46,7 +46,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public string Ubicacio { get => ubicacio; set => ubicacio = value; }
         public double Durada { get => durada; set => durada = value; }
         public decimal Preu { get => preu; set => preu = value; }
-        internal Categoria Categoria { get => categoria; set => categoria = value; }
-        internal Usuari UsuariCreador { get => usuariCreador; set => usuariCreador = value; }
+        public Categoria Categoria { get => categoria; set => categoria = value; }
+        public Usuari UsuariCreador { get => usuariCreador; set => usuariCreador = value; }
     }
 }

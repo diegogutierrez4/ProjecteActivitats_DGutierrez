@@ -55,7 +55,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 
                 while (reader.Read())
                 {
-                    int id = reader.GetInt32(reader.GetOrdinal("id"));
+                    int id = reader.GetInt32(reader.GetOrdinal("id_usuari"));
                     string nom = reader.GetString(reader.GetOrdinal("nom"));
                     string cognom = reader.GetString(reader.GetOrdinal("cognom"));
                     string nomUsuari = reader.GetString(reader.GetOrdinal("nomUsuari"));
@@ -64,17 +64,14 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                     DateTime dataNaix = reader.GetDateTime(reader.GetOrdinal("dataNaix"));
                     bool modeCreador = reader.GetBoolean(reader.GetOrdinal("modeCreador"));
 
-                    List<Activitat> llistaActivitats = new List<Activitat>();
-                    List<Reserva> llistaReserves = new List<Reserva>();
-
-                    Usuari usuari = new Usuari(id, nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador, llistaActivitats, llistaReserves);
+                    Usuari usuari = new Usuari(id, nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador);
                     llistaUsuaris.Add(usuari);
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener los usuarios de la BD: " + ex.Message);
+                MessageBox.Show("Error a l'obtenir els usuaris de la BD: " + ex.Message);
             }
             Connexio.Desconnectar();
             return llistaUsuaris;

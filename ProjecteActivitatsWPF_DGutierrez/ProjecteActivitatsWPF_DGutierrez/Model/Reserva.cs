@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Model
 {
-    class Reserva
+    public class Reserva
     {
         // Atributs
         private int id;
@@ -33,7 +33,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public DateTime DataReserva { get => dataReserva; set => dataReserva = value; }
         public int NumPersones { get => numPersones; set => numPersones = value; }
         public decimal PreuFinal { get => preuFinal; set => preuFinal = value; }
-        internal Usuari UsuariReserva { get => usuariReserva; set => usuariReserva = value; }
-        internal Activitat Activitat { get => activitat; set => activitat = value; }
+        public Usuari UsuariReserva { get => usuariReserva; set => usuariReserva = value; }
+        public Activitat Activitat { get => activitat; set => activitat = value; }
     }
 }

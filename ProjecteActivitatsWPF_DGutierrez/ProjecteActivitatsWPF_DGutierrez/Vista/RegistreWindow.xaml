@@ -165,11 +165,15 @@
                     </Border>
                 </Grid>
 
-                <Grid Margin="0 7">
+                <Grid>
+                    <CheckBox x:Name="checkBox_ModeCreador" Margin="69,0,69,0" Content="Mode Creador ( activaràs la possibilitat d'oferir les teves pròpies activitats )"></CheckBox>
+                </Grid>
+
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="buttonRegistre" Content="ENTRA" Click="buttonRegistre_Click" Style="{StaticResource botóIniciarSessio}"/>
+                    <Button x:Name="buttonRegistre" Content="ENTRA" Click="buttonRegistre_Click" Style="{StaticResource botóIniciarSessio}" Margin="220,20,220,0"/>
                 </Grid>
             </StackPanel>
         </Border>

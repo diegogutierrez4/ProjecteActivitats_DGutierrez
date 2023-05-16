@@ -47,6 +47,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         }
         public MySqlConnection Connectar()
         {
+            Conection.Close();
             try
             {
                 Conection.ConnectionString = StringConnexio();

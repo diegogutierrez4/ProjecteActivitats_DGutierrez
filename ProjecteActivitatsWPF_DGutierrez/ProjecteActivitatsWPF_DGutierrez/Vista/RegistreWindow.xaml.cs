@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -115,20 +116,69 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string nom = textBox_Nom.Text;
             string cognom = textBox_Cognom.Text;
             string nomUsuari = textBox_NomUsuari.Text;
-            DateTime dataNaix = Convert.ToDateTime(textBox_DataNaix.Text);
+            DateTime dataNaix;
+            if (!DateTime.TryParse(textBox_DataNaix.Text, out dataNaix))
+            {
+                MessageBox.Show("La data de naixement no és vàlida.");
+                return;
+            }
             string correu = textBox_Correu.Text;
-            string contrasenya = passwordBox_Contrasenya1.Password;
+            string contrasenya1 = passwordBox_Contrasenya1.Password;
+            string contrasenya2 = passwordBox_Contrasenya2.Password;
+
+            // Validacions de les dades de registre
+            if (nom.Length < 3 || cognom.Length < 3)
+            {
+                MessageBox.Show("El nom i el cognom han de tenir almenys 3 caràcters.");
+                return;
+            }
+
+            if (nomUsuari.Length < 4)
+            {
+                MessageBox.Show("El nom d'usuari ha de tenir un mínim de 4 caràcters.");
+                return;
+            }
+
+            if (!ValidarCorreu(correu))
+            {
+                MessageBox.Show("El correu electrònic no té un format vàlid.");
+                return;
+            }
+
+            if (contrasenya1.Length < 6)
+            {
+                MessageBox.Show("La contrasenya ha de tenir un mínim de 6 caràcters.");
+                return;
+            }
+
+            if (contrasenya1 != contrasenya2)
+            {
+                MessageBox.Show("Les contrasenyes no coincideixen.");
+                return;
+            }
+
+            bool modeCreador = false;
+            if (checkBox_ModeCreador.IsChecked == true)
+                modeCreador = true;
 
             UsuarisBD nouUsuari = new UsuarisBD(connexio);
-            nouUsuari.AfegirUsuari(nom, cognom, nomUsuari, correu, contrasenya, dataNaix, true);
+            nouUsuari.AfegirUsuari(nom, cognom, nomUsuari, correu, contrasenya1, dataNaix, modeCreador);
 
             textBox_Nom.Text = "Nom";
             textBox_Cognom.Text = "Cognom";
             textBox_NomUsuari.Text = "Nom d'usuari";
             textBox_DataNaix.Text = "Data de naixement";
-            textBox_Correu.Text = "Correu electònic";
+            textBox_Correu.Text = "Correu electrònic";
             passwordBox_Contrasenya1.Password = "Contrasenya";
             passwordBox_Contrasenya2.Password = "Contrasenya";
+            checkBox_ModeCreador.IsChecked = false;
+        }
+
+        private static bool ValidarCorreu(string correu)
+        {
+            string regex = @"^[^@\s]+@[^@\s]+\.(com|cat|net|org|gov)$";
+
+            return Regex.IsMatch(correu, regex, RegexOptions.IgnoreCase);
         }
 
         private void button_TornarIniciSessio_Click(object sender, RoutedEventArgs e)
