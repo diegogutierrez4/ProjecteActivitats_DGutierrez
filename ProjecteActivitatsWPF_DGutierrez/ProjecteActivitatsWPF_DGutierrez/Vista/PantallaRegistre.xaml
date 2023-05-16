@@ -41,8 +41,12 @@
                         <Image Source="/Imatges/return.png" Width="48" Height="45" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
                 </Canvas>
+                
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Recorda!" Style="{StaticResource titolText}" FontSize="30"/>
+                    <TextBlock Text="Podràs activar el Mode Creador més endavant dins l'aplicació." Style="{StaticResource textNormal}" Opacity="0.8" Margin="20 30"/>
+                </StackPanel>
 
-                <StackPanel VerticalAlignment="Center"/>
             </Grid>
         </Border>
 
@@ -166,7 +170,7 @@
                 </Grid>
 
                 <Grid>
-                    <CheckBox x:Name="checkBox_ModeCreador" Margin="69,0,69,0" Content="Mode Creador ( activaràs la possibilitat d'oferir les teves pròpies activitats )"></CheckBox>
+                    <CheckBox x:Name="checkBox_ModeCreador" Margin="69,0,69,0" Content="Mode Creador ( activaràs la possibilitat d'oferir les teves pròpies activitats )" Opacity="0.88"/>
                 </Grid>
 
                 <Grid>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\App.xaml
-2704898031
+3-804950198
 
-11722159910
+12-489637519
 201709550025
-Vista\MainWindow.xaml;Vista\RegistreWindow.xaml;
+Vista\MainWindow.xaml;Vista\PantallaPrincipal.xaml;Vista\PantallaRegistre.xaml;
 
-True
+False
 

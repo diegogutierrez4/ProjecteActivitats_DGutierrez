@@ -83,14 +83,17 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
                 if (usuari.NomUsuari == nomUsuari && usuari.Contrasenya == contrasenya)
                 {
                     usuariExisteix = true;
-                    //PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-                    //PantallaPrincipal.Show();
-                    //this.Close();
                 }
             }
             if (!usuariExisteix)
             {
                 MessageBox.Show("Usuari/contrasenya no vàlid!");
+            }
+            else
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
             }
 
         }
