@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
+using ProjecteActivitatsWPF_DGutierrez.Model;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -30,9 +31,8 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             connexio = new ConnexioBD(mySqlConnection, "localhost",  "3306", "root", "", "projectedb");
             MySqlConnection connexioBD = connexio.Connectar();
 
-            string sqlQuery = "SELECT * FROM usuaris";
-            MySqlCommand command = new MySqlCommand(sqlQuery, connexioBD);
-
+            //string sqlQuery = "SELECT * FROM usuaris";
+            //MySqlCommand command = new MySqlCommand(sqlQuery, connexioBD);
         }
 
         // Tancar app
@@ -72,7 +72,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         // Iniciar sessió
         private void buttonIniciarSessio_Click(object sender, RoutedEventArgs e)
         {
+            UsuarisBD usuarisBD = new UsuarisBD(connexio);
 
+            List<Usuari> usuaris = usuarisBD.ObtenirUsuaris();
         }
     }
 }

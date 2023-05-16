@@ -46,7 +46,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public string Contrasenya { get => contrasenya; set => contrasenya = value; }
         public DateTime DataNaix { get => dataNaix; set => dataNaix = value; }
         public bool ModeCreador { get => modeCreador; set => modeCreador = value; }
-        internal List<Activitat> LlistaActivitats { get => llistaActivitats; set => llistaActivitats = value; }
-        internal List<Reserva> LlsitaReserves { get => llsitaReserves; set => llsitaReserves = value; }
+        public List<Activitat> LlistaActivitats { get => llistaActivitats; set => llistaActivitats = value; }
+        public List<Reserva> LlsitaReserves { get => llsitaReserves; set => llsitaReserves = value; }
     }
 }

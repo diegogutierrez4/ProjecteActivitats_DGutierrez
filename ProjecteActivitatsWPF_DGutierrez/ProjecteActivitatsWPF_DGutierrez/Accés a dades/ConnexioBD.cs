@@ -11,51 +11,79 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
     public class ConnexioBD
     {
         //Atributs
-        MySqlConnection conection;
+        MySqlConnection connection;
         private string servidor;
         private string port;
         private string usuari;
         private string password;
         private string baseDades;
 
+        public MySqlConnection Conection { get => connection; set => connection = value; }
+        public string Servidor { get => servidor; set => servidor = value; }
+        public string Port { get => port; set => port = value; }
+        public string Usuari { get => usuari; set => usuari = value; }
+        public string Password { get => password; set => password = value; }
+        public string BaseDades { get => baseDades; set => baseDades = value; }
+
         public ConnexioBD()
         {
-            conection = new MySqlConnection();
+            Conection = new MySqlConnection();
             //EmplenarValorsDefecte();
         }
 
         public ConnexioBD(MySqlConnection conection, string servidor, string port, string usuari, string password, string baseDades)
         {
-            this.conection = conection;
-            this.servidor = servidor;
-            this.port = port;
-            this.usuari = usuari;
-            this.password = password;
-            this.baseDades = baseDades;
+            this.Conection = conection;
+            this.Servidor = servidor;
+            this.Port = port;
+            this.Usuari = usuari;
+            this.Password = password;
+            this.BaseDades = baseDades;
         }
         private string StringConnexio()
         {
-            string stringConnexio = $"server={servidor};port={port};user={usuari};password={password};database={baseDades};";
+            string stringConnexio = $"server={Servidor};port={Port};user={Usuari};password={Password};database={BaseDades};";
             return stringConnexio;
         }
         public MySqlConnection Connectar()
         {
             try
             {
-                conection.ConnectionString = StringConnexio();
-                conection.Open();
-                MessageBox.Show("Connexió oberta OK!");
+                Conection.ConnectionString = StringConnexio();
+                Conection.Open();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(("Error al obrir la BD: " + ex.Message));
             }
-            return conection;
+            return Conection;
         }
         public void Desconnectar()
         {
-            MessageBox.Show("!");
-            conection.Close();
+            Conection.Close();
+        }
+        public void AfegirUsuari(string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador)
+        {
+            try
+            {
+                string connectionString = "server=localhost;port=3306;user=root;password=;database=projectedb";
+                MySqlConnection connexioBD = new MySqlConnection(connectionString);
+                connexioBD.Open();
+
+                string registrarUsuari = $"INSERT INTO usuaris (nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador) VALUES ('{nom}', '{cognom}', '{nomUsuari}', '{correu}', '{contrasenya}', '{dataNaix.ToString("yyyy-MM-dd")}', {(modeCreador ? 1 : 0)})";
+                MySqlCommand command = new MySqlCommand(registrarUsuari, connexioBD);
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Usuari afegit!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error l'obrir la BD: " + ex.Message);
+            }
+            finally
+            {
+                Conection.Close();
+            }
         }
 
     }

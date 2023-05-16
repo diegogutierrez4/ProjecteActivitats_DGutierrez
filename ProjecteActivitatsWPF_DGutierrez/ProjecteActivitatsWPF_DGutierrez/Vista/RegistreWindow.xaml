@@ -147,7 +147,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/contra_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_Contrasenya1" TextChanged="textBox_Contrasenya1_TextChanged" Style="{StaticResource textBox}" Text="Contrasenya" Opacity="0.4" GotFocus="textBox_Contrasenya1_GotFocus"/>
+                            <PasswordBox x:Name="passwordBox_Contrasenya1" PasswordChanged="textBox_Contrasenya1_PasswordChanged" Style="{StaticResource textBox}" Password="Contrasenya" Opacity="0.4" GotFocus="textBox_Contrasenya1_GotFocus"/>
                         </Grid>
                     </Border>
 
@@ -160,7 +160,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Imatges/contra_logo.png" Height="24" Opacity="0.4"/>
-                            <TextBox x:Name="textBox_Contrasenya2" TextChanged="textBox_Contrasenya2_TextChanged" Style="{StaticResource textBox}" Text="Confirma contrasenya" Opacity="0.4" GotFocus="textBox_Contrasenya2_GotFocus"/>
+                            <PasswordBox x:Name="passwordBox_Contrasenya2" PasswordChanged="textBox_Contrasenya2_PasswordChanged" Style="{StaticResource textBox}" Password="Contrasenya" Opacity="0.4" GotFocus="textBox_Contrasenya2_GotFocus"/>
                         </Grid>
                     </Border>
                 </Grid>

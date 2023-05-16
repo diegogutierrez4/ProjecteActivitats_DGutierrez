@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using MySql.Data.MySqlClient;
+using ProjecteActivitatsWPF_DGutierrez.Model;
+
+namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
+{
+    public class UsuarisBD
+    {
+        // Atributs
+        private ConnexioBD connexio;
+
+        // Constructors
+        public UsuarisBD(ConnexioBD connexio)
+        {
+            this.connexio = connexio;
+        }
+
+        // Propietats
+        public ConnexioBD Connexio { get => connexio; set => connexio = value; }
+
+        // Mètodes
+        public void AfegirUsuari(string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador)
+        {
+            try
+            {
+                string registrarUsuari = $"INSERT INTO usuaris (nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador) VALUES ('{nom}', '{cognom}', '{nomUsuari}', '{correu}', '{contrasenya}', '{dataNaix.ToString("yyyy-MM-dd")}', {(modeCreador ? 1 : 0)})";
+                MySqlCommand command = new MySqlCommand(registrarUsuari, Connexio.Connectar());
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Benvingu@ a l'aplicació oficial de GuiaMe!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obrir la BD: " + ex.Message);
+            }
+            finally
+            {
+                Connexio.Desconnectar();
+            }
+        }
+        public List<Usuari> ObtenirUsuaris()
+        {
+            List<Usuari> llistaUsuaris = new List<Usuari>();
+
+            try
+            {
+                string obtenirUsuaris = "SELECT * FROM usuaris";
+                MySqlCommand command = new MySqlCommand(obtenirUsuaris, Connexio.Connectar());
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(reader.GetOrdinal("id"));
+                    string nom = reader.GetString(reader.GetOrdinal("nom"));
+                    string cognom = reader.GetString(reader.GetOrdinal("cognom"));
+                    string nomUsuari = reader.GetString(reader.GetOrdinal("nomUsuari"));
+                    string correu = reader.GetString(reader.GetOrdinal("correu"));
+                    string contrasenya = reader.GetString(reader.GetOrdinal("contrasenya"));
+                    DateTime dataNaix = reader.GetDateTime(reader.GetOrdinal("dataNaix"));
+                    bool modeCreador = reader.GetBoolean(reader.GetOrdinal("modeCreador"));
+
+                    List<Activitat> llistaActivitats = new List<Activitat>();
+                    List<Reserva> llistaReserves = new List<Reserva>();
+
+                    Usuari usuari = new Usuari(id, nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador, llistaActivitats, llistaReserves);
+                    llistaUsuaris.Add(usuari);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los usuarios de la BD: " + ex.Message);
+            }
+            Connexio.Desconnectar();
+            return llistaUsuaris;
+        }
+    }
+}
