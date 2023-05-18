@@ -8,15 +8,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Imatges\add_logo2.png" />
+    <None Remove="Imatges\categoria_icone.png" />
     <None Remove="Imatges\contra_logo.png" />
     <None Remove="Imatges\correu_logo.png" />
     <None Remove="Imatges\dataNaix_logo.png" />
+    <None Remove="Imatges\descripcio_icone.png" />
+    <None Remove="Imatges\durada_icone.png" />
     <None Remove="Imatges\facebook_logo.png" />
     <None Remove="Imatges\google_logo.png" />
+    <None Remove="Imatges\imatge_icone.png" />
     <None Remove="Imatges\instagram_logo.png" />
     <None Remove="Imatges\logoApp.png" />
+    <None Remove="Imatges\nom_icone.png" />
+    <None Remove="Imatges\preu_icone.png" />
     <None Remove="Imatges\return.png" />
+    <None Remove="Imatges\returnBlue.png" />
+    <None Remove="Imatges\ubicacio_icone.png" />
     <None Remove="Imatges\usuari_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imatges\categoria_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\descripcio_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\durada_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +49,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Imatges\add_logo2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imatges\contra_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -43,10 +67,25 @@
     <Resource Include="Imatges\google_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Imatges\imatge_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imatges\instagram_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Imatges\nom_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\preu_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imatges\return.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\returnBlue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\ubicacio_icone.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\usuari_logo.png">

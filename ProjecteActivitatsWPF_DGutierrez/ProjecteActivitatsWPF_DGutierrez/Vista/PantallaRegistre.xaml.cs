@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
+using ProjecteActivitatsWPF_DGutierrez.Model;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -117,6 +118,19 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string cognom = textBox_Cognom.Text;
             string nomUsuari = textBox_NomUsuari.Text;
             DateTime dataNaix;
+
+            UsuarisBD usuarisBD = new UsuarisBD(connexio);
+
+            List<Usuari> usuaris = usuarisBD.ObtenirUsuaris();
+
+            foreach(Usuari usuari in  usuaris)
+            {
+                if (usuari.NomUsuari == nomUsuari)
+                {
+                    MessageBox.Show("El nom d'usuari ja existeix.");
+                    return;
+                }
+            }
             if (!DateTime.TryParse(textBox_DataNaix.Text, out dataNaix))
             {
                 MessageBox.Show("La data de naixement no és vàlida.");

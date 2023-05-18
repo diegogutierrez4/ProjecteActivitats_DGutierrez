@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjecteActivitatsWPF_DGutierrez.Model;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -19,9 +20,16 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     /// </summary>
     public partial class PantallaPrincipal : Window
     {
-        public PantallaPrincipal()
+        Usuari usuariActual;
+        public PantallaPrincipal(Usuari usuari)
         {
             InitializeComponent();
+            usuariActual = usuari;
+
+            if (!usuariActual.ModeCreador)
+            {
+                button_AfegirActivitat.Visibility = Visibility.Hidden;
+            }
         }
 
         // Botons
@@ -42,6 +50,12 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             this.Close();
         }
         // -
+        private void button_AfegirActivitat_Click(object sender, RoutedEventArgs e)
+        {
+            PantallaCrearActivitat pantallaCrearActivitat = new PantallaCrearActivitat(usuariActual);
+            pantallaCrearActivitat.Show();
+            this.Close();
+        }
 
     }
 }

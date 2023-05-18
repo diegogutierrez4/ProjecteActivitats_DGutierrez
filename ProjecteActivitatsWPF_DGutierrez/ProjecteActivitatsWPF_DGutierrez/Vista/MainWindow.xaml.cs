@@ -75,14 +75,18 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             UsuarisBD usuarisBD = new UsuarisBD(connexio);
 
             List<Usuari> usuaris = usuarisBD.ObtenirUsuaris();
+            Usuari usuariActual = new Usuari();
+
             string nomUsuari = textBox_NomUsuari.Text;
             string contrasenya = passwordBox_Contrasenya.Password;
             bool usuariExisteix = false;
+
             foreach(Usuari usuari in usuaris)
             {
                 if (usuari.NomUsuari == nomUsuari && usuari.Contrasenya == contrasenya)
                 {
                     usuariExisteix = true;
+                    usuariActual = usuari;
                 }
             }
             if (!usuariExisteix)
@@ -91,7 +95,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             }
             else
             {
-                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal(usuariActual);
                 pantallaPrincipal.Show();
                 this.Close();
             }

@@ -18,6 +18,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         private string password;
         private string baseDades;
 
+        // Constructors
         public MySqlConnection Conection { get => connection; set => connection = value; }
         public string Servidor { get => servidor; set => servidor = value; }
         public string Port { get => port; set => port = value; }
@@ -55,7 +56,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             }
             catch (Exception ex)
             {
-                MessageBox.Show(("Error al obrir la BD: " + ex.Message));
+                MessageBox.Show(("Error l'obrir la BD: " + ex.Message));
             }
             return Conection;
         }

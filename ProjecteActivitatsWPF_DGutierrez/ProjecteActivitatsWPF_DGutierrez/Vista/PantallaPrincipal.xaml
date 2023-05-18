@@ -31,7 +31,7 @@
                     <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6" HorizontalAlignment="Center" Height="480" Canvas.Top="10" VerticalAlignment="Top"/>
                     <Ellipse Margin="50 400 0 0" Fill="#4EB1B6" Height="20" Width="20"/>
                     <Ellipse Fill="#4EB1B6" Height="68" Width="68" HorizontalAlignment="Left" Canvas.Left="81" Canvas.Top="-45" VerticalAlignment="Top"/>
-                    <Button x:Name="button_TornarIniciSessio" Style="{StaticResource botóNoSeleccionable}" Height="55" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="54" Canvas.Top="473" Click="button_TornarIniciSessio_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+                    <Button x:Name="button_TornarIniciSessio" Style="{StaticResource botóNoSeleccionable}" Height="44" Width="62" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="54" Canvas.Top="496" Click="button_TornarIniciSessio_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <ContentPresenter Content="{TemplateBinding Content}" />
@@ -48,7 +48,14 @@
 
         <!-- Activitats -->
         <Border Background="White" Grid.Column="1" CornerRadius="0 10 10 0">
-
+            <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="56" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="608,484,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </ControlTemplate>
+                </Button.Template>
+                <Image Source="/Imatges/add_logo2.png" Width="50" Height="50" OpacityMask="Black" Opacity="0.77"/>
+            </Button>
         </Border>
 
         <!-- Botons de sortir i minimitzar -->

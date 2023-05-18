@@ -40,3 +40,5 @@ C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteA
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaRegistre.g.cs
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaPrincipal.baml
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaRegistre.baml
+C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaCrearActivitat.g.cs
+C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaCrearActivitat.baml
