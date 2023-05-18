@@ -10,7 +10,7 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="1.5*"/>

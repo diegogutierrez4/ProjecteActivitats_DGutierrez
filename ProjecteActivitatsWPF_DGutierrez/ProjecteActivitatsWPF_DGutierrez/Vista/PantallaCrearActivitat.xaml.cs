@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -34,6 +36,11 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         {
             PantallaPrincipal pantallaPrincipal = new PantallaPrincipal(usuariActual);
             pantallaPrincipal.Show();
+            textBox_Nom.Text = "Nom";
+            textBox_Ubicacio.Text = "Ubicació";
+            textBox_Descripcio.Text = "Descripció";
+            textBox_Durada.Text = "Durada";
+            textBox_Preu.Text = "Preu";
             this.Close();
         }
 
@@ -47,6 +54,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         {
             WindowState = WindowState.Minimized;
         }
+        // Dades de crear Activitat
 
         private void textBox_Nom_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -55,8 +63,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void textBox_Nom_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            textBox_Nom.Clear();
         }
+        // -
 
         private void textBox_Ubicacio_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -65,8 +74,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void textBox_Ubciacio_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            textBox_Ubicacio.Clear();
         }
+        // -
 
         private void textBox_Descripcio_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -75,8 +85,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void textBox_Descripcio_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            textBox_Descripcio.Clear();
         }
+        // -
 
         private void textBox_Durada_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -85,8 +96,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void textBox_Durada_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            textBox_Durada.Clear();
         }
+        // -
 
         private void textBox_Preu_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -95,17 +107,32 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void textBox_Preu_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            textBox_Preu.Clear();
         }
+        // -
 
         private void Button_Imatge_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp|Todos los archivos|*.*";
 
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Obtén la ruta completa del archivo seleccionado
+                string imagePath = openFileDialog.FileName;
+
+                // Crea la carpeta dentro de tu proyecto (si no existe)
+                string folderPath = @"C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ImatgesActivitats";
+                Directory.CreateDirectory(folderPath);
+
+                // Copia el archivo seleccionado a la carpeta
+                string destinationPath = System.IO.Path.Combine(folderPath, System.IO.Path.GetFileName(imagePath));
+                File.Copy(imagePath, destinationPath, true);
+            }
         }
-
         private void buttonCrearActivitat_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+        } 
     }
 }

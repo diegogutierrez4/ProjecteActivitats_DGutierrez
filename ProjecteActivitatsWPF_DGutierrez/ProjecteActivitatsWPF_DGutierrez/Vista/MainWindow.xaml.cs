@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
 using ProjecteActivitatsWPF_DGutierrez.Model;
+using System.Runtime.InteropServices;
+using System.Windows.Automation;
+using System.Windows.Interop;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -34,13 +37,19 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             //string sqlQuery = "SELECT * FROM usuaris";
             //MySqlCommand command = new MySqlCommand(sqlQuery, connexioBD);
         }
-
-        // Tancar app
-        private void buttonSortirClick(object sender, RoutedEventArgs e)
-        {
-            connexio.Desconnectar();
-            Application.Current.Shutdown();
-        }
+        //[DllImport("user32.dll")]
+        //public static extern IntPtr SendMessage(IntPtr intPtr, int wParam, int lParam, int WmSG);
+        //private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    WindowInteropHelper helper = new WindowInteropHelper(this);
+        //    SendMessage(helper.Handle, 161, 2, 0);
+        //}
+        //// Tancar app
+        //private void buttonSortirClick(object sender, RoutedEventArgs e)
+        //{
+        //    connexio.Desconnectar();
+        //    Application.Current.Shutdown();
+        //}
 
         // Minimitzar
         private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
