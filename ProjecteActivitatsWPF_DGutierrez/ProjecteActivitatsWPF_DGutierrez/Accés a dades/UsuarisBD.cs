@@ -36,7 +36,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obrir la BD: " + ex.Message);
+                MessageBox.Show("Error a l'obrir la BD: " + ex.Message);
             }
             finally
             {

@@ -37,20 +37,11 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             //string sqlQuery = "SELECT * FROM usuaris";
             //MySqlCommand command = new MySqlCommand(sqlQuery, connexioBD);
         }
-        //[DllImport("user32.dll")]
-        //public static extern IntPtr SendMessage(IntPtr intPtr, int wParam, int lParam, int WmSG);
-        //private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    WindowInteropHelper helper = new WindowInteropHelper(this);
-        //    SendMessage(helper.Handle, 161, 2, 0);
-        //}
-        //// Tancar app
-        //private void buttonSortirClick(object sender, RoutedEventArgs e)
-        //{
-        //    connexio.Desconnectar();
-        //    Application.Current.Shutdown();
-        //}
-
+        // Sortir
+        private void buttonSortirClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
         // Minimitzar
         private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
         {

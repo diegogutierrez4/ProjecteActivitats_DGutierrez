@@ -52,7 +52,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/Imatges/categoria_icone.png" Height="24" Opacity="0.4"/>
-                        <ComboBox x:Name="textBox_Categoria" Style="{StaticResource textBox}" Text="Categoria" Opacity="0.4"/>
+                        <ComboBox x:Name="comboBox_Categories" Style="{StaticResource textBox}" Text="Categoria" Opacity="0.4" SelectionChanged="comboBox_Categories_SelectionChanged"/>
                     </Grid>
                 </Border>
             </Grid>
