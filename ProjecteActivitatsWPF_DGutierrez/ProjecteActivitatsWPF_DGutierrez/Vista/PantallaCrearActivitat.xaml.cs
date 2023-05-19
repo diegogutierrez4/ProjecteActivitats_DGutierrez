@@ -203,8 +203,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
             ActivitatsBD activitat = new ActivitatsBD(connexio);
             activitat.AfegirActivitat(nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, nomImatge);
-
-            activitat.AfegirUsuariActivitat(usuariCreador, activitat.obtenirIdActivitat(usuariCreador));
         }
     }
 }

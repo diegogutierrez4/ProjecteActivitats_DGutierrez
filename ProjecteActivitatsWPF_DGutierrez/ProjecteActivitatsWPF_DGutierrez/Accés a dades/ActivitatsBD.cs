@@ -28,29 +28,41 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         {
             try
             {
-                string registrarActivitat = $"INSERT INTO activitats (nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, nomImatge) VALUES ('{nom}', '{ubicacio}', '{categoria}', '{descripcio}', '{durada}', '{preu}', {usuariCreador}, '{nomImatge}')";
-                MySqlCommand command = new MySqlCommand(registrarActivitat, Connexio.Connectar());
-                command.ExecuteNonQuery();
+                MySqlConnection connection = Connexio.Connectar();
+                MySqlCommand command = connection.CreateCommand();
+                MySqlTransaction transaction;
 
-                MessageBox.Show("Enhorabona, activitat creada correctament!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error a l'obrir la BD: " + ex.Message);
-            }
-            finally
-            {
-                Connexio.Desconnectar();
-            }
-        }
+                // Iniciar transaction
+                transaction = connection.BeginTransaction();
+                command.Connection = connection;
+                command.Transaction = transaction;
 
-        public void AfegirUsuariActivitat(int usuariId, int activitatId)
-        {
-            try
-            {
-                string relacioUsuariActivitat = $"INSERT INTO usuari_activitat (usuari_id, activitat_id) VALUES ({usuariId}, {activitatId})";
-                MySqlCommand command = new MySqlCommand(relacioUsuariActivitat, Connexio.Connectar());
-                command.ExecuteNonQuery();
+                try
+                {
+                    // Insertar la taula 'activitats'
+                    string registrarActivitat = $"INSERT INTO activitats (nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, nomImatge) VALUES ('{nom}', '{ubicacio}', '{categoria}', '{descripcio}', '{durada}', '{preu}', {usuariCreador}, '{nomImatge}')";
+                    command.CommandText = registrarActivitat;
+                    command.ExecuteNonQuery();
+
+                    // Obtener ID de l'actividad insertada anteriorment
+                    int idActivitat = (int)command.LastInsertedId;
+
+                    // Insertar a la taula 'usuari_activitat'
+                    string registrarUsuariActivitat = $"INSERT INTO usuari_activitat (usuari_id, activitat_id) VALUES ({usuariCreador}, {idActivitat})";
+                    command.CommandText = registrarUsuariActivitat;
+                    command.ExecuteNonQuery();
+
+                    // Confirmar la transaction
+                    transaction.Commit();
+
+                    MessageBox.Show("Enhorabona, activitat creada correctament!");
+                }
+                catch (Exception ex)
+                {
+                    // Revertir la transaction en cas d'error
+                    transaction.Rollback();
+                    MessageBox.Show("Error en l'execució de la transacció: " + ex.Message);
+                }
             }
             catch (Exception ex)
             {
