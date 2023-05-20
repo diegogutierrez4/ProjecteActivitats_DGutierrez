@@ -21,13 +21,14 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         private string descripcio;
         private string ubicacio;
         private Categoria categoria;
-        private double durada;
+        private string durada;
         private decimal preu;
-        private Usuari usuariCreador;
+        private int usuariCreador;
+        private string nomImatge;
 
         // Constructors
         public Activitat() { }
-        public Activitat(int id, string nom, string descripcio, string ubicacio, Categoria categoria, double durada, decimal preu, Usuari usuariCreador)
+        public Activitat(int id, string nom, string descripcio, string ubicacio, Categoria categoria, string durada, decimal preu, int usuariCreador, string nomImatge)
         {
             this.Id = id;
             this.Nom = nom;
@@ -37,6 +38,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
             this.Durada = durada;
             this.Preu = preu;
             this.UsuariCreador = usuariCreador;
+            this.nomImatge = nomImatge;
         }
 
         // Propietats
@@ -44,9 +46,10 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public string Nom { get => nom; set => nom = value; }
         public string Descripcio { get => descripcio; set => descripcio = value; }
         public string Ubicacio { get => ubicacio; set => ubicacio = value; }
-        public double Durada { get => durada; set => durada = value; }
+        public string Durada { get => durada; set => durada = value; }
         public decimal Preu { get => preu; set => preu = value; }
         public Categoria Categoria { get => categoria; set => categoria = value; }
-        public Usuari UsuariCreador { get => usuariCreador; set => usuariCreador = value; }
+        public int UsuariCreador { get => usuariCreador; set => usuariCreador = value; }
+        public string NomImatge { get => nomImatge; set => nomImatge = value; }
     }
 }

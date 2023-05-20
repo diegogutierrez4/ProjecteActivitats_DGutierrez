@@ -33,9 +33,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             MySqlConnection mySqlConnection = new MySqlConnection();
             connexio = new ConnexioBD(mySqlConnection, "localhost",  "3306", "root", "", "projectedb");
             MySqlConnection connexioBD = connexio.Connectar();
-
-            //string sqlQuery = "SELECT * FROM usuaris";
-            //MySqlCommand command = new MySqlCommand(sqlQuery, connexioBD);
         }
         // Sortir
         private void buttonSortirClick(object sender, RoutedEventArgs e)

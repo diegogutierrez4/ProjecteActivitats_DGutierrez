@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ImatgesActivitats\Horari.png" />
     <None Remove="Imatges\add_logo2.png" />
     <None Remove="Imatges\categoria_icone.png" />
     <None Remove="Imatges\contra_logo.png" />
@@ -29,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ImatgesActivitats\Horari.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imatges\categoria_icone.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -42,7 +46,6 @@
 
   <ItemGroup>
     <Folder Include="Icones\" />
-    <Folder Include="ImatgesActivitats\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 {
-    class ActivitatsBD
+    public class ActivitatsBD
     {
         // Atributs
         private ConnexioBD connexio;
@@ -17,7 +17,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         // Constructors
         public ActivitatsBD(ConnexioBD connexio)
         {
-            this.Connexio = connexio;
+            this.connexio = connexio;
         }
 
         // Propietats
@@ -74,61 +74,40 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             }
         }
 
-        public int obtenirIdActivitat(int idUsuari)
+        public List<Activitat> ObtenirActivitats()
         {
-            int idActivitat = 0;
+            List<Activitat> llistaActivitats = new List<Activitat>();
+
             try
             {
-                string comandaObtenirIdActivitat = $"SELECT activitat_id FROM activitats WHERE usuariCreador = {idUsuari}";
-                MySqlCommand command = new MySqlCommand(comandaObtenirIdActivitat, Connexio.Connectar());
+                string obtenirActivitats = "SELECT * FROM activitats";
+                MySqlCommand command = new MySqlCommand(obtenirActivitats, Connexio.Connectar());
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    idActivitat = reader.GetInt32(reader.GetOrdinal("usuari_id"));
+                    int id = reader.GetInt32(reader.GetOrdinal("id_activitat"));
+                    string nom = reader.GetString(reader.GetOrdinal("nom"));
+                    string ubicacio = reader.GetString(reader.GetOrdinal("ubicacio"));
+                    Categoria categoria = (Categoria)reader.GetOrdinal("categoria");
+                    string descripcio = reader.GetString(reader.GetOrdinal("descripcio"));
+                    string durada = reader.GetString(reader.GetOrdinal("durada"));
+                    decimal preu = reader.GetDecimal(reader.GetOrdinal("preu"));
+                    int usuariCreador = reader.GetInt32(reader.GetOrdinal("usuariCreador"));
+                    string nomImatge = "/ImatgesActivitats/" + reader.GetString(reader.GetOrdinal("nomImatge"));
+
+
+                    Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, nomImatge);
+                    llistaActivitats.Add(activitat);
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error a l'obtenir activitat de la BD: " + ex.Message);
+                MessageBox.Show("Error a l'obtenir les activitats de la BD: " + ex.Message);
             }
             Connexio.Desconnectar();
-
-            return idActivitat;
-        }
-        //public List<Usuari> ObtenirUsuaris()
-        //{
-        //    List<Usuari> llistaUsuaris = new List<Usuari>();
-
-            //    try
-            //    {
-            //        string obtenirUsuaris = "SELECT * FROM usuaris";
-            //        MySqlCommand command = new MySqlCommand(obtenirUsuaris, Connexio.Connectar());
-            //        MySqlDataReader reader = command.ExecuteReader();
-
-            //        while (reader.Read())
-            //        {
-            //            int id = reader.GetInt32(reader.GetOrdinal("id_usuari"));
-            //            string nom = reader.GetString(reader.GetOrdinal("nom"));
-            //            string cognom = reader.GetString(reader.GetOrdinal("cognom"));
-            //            string nomUsuari = reader.GetString(reader.GetOrdinal("nomUsuari"));
-            //            string correu = reader.GetString(reader.GetOrdinal("correu"));
-            //            string contrasenya = reader.GetString(reader.GetOrdinal("contrasenya"));
-            //            DateTime dataNaix = reader.GetDateTime(reader.GetOrdinal("dataNaix"));
-            //            bool modeCreador = reader.GetBoolean(reader.GetOrdinal("modeCreador"));
-
-            //            Usuari usuari = new Usuari(id, nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador);
-            //            llistaUsuaris.Add(usuari);
-            //        }
-            //        reader.Close();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error a l'obtenir els usuaris de la BD: " + ex.Message);
-            //    }
-            //    Connexio.Desconnectar();
-            //    return llistaUsuaris;
-            //}
+            return llistaActivitats;
+        } 
     }
 }

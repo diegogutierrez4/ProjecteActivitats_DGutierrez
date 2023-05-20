@@ -48,17 +48,31 @@
 
         <!-- Activitats -->
         <Border Background="White" Grid.Column="1" CornerRadius="0 10 10 0">
-            <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="56" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="608,484,0,0">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <ContentPresenter Content="{TemplateBinding Content}" />
-                    </ControlTemplate>
-                </Button.Template>
-                <Image Source="/Imatges/add_logo2.png" Width="50" Height="50" OpacityMask="Black" Opacity="0.77"/>
-            </Button>
+            <Grid>
+                <ListBox x:Name="listBoxActivitats" SelectionChanged="listBoxActivitats_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding NomImatge}" Width="100" Height="100"/>
+                                <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                                    <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="16"/>
+                                    <TextBlock Text="{Binding Ubicacio}" Margin="0 5 0 0"/>
+                                    <TextBlock Text="{Binding Descripcio}" TextWrapping="Wrap" Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="buttonReservarActivitat" Content="Comprar" Click="buttonReservarActivitat_Click" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top"/>
+            </Grid>
         </Border>
 
-        <!-- Botons de sortir i minimitzar -->
+
+        <!-- Botons de sortir, minimitzar i crear activitat -->
         <Button x:Name="buttonMinimitzar"
             Background="#FFEAEAEA"
             BorderThickness="0"
@@ -89,6 +103,15 @@
                     <Setter Property="CornerRadius" Value="9"/>
                 </Style>
             </Button.Resources>
+        </Button>
+
+        <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="56" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="608,484,0,0" Grid.Column="1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter Content="{TemplateBinding Content}" />
+                </ControlTemplate>
+            </Button.Template>
+            <Image Source="/Imatges/add_logo2.png" Width="50" Height="50" OpacityMask="Black" Opacity="0.77"/>
         </Button>
     </Grid>
 </Window>

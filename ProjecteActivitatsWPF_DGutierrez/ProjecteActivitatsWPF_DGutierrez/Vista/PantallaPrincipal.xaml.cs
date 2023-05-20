@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
 using ProjecteActivitatsWPF_DGutierrez.Model;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
@@ -21,10 +23,21 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     public partial class PantallaPrincipal : Window
     {
         Usuari usuariActual;
+        ConnexioBD connexio;
+
         public PantallaPrincipal(Usuari usuari)
         {
             InitializeComponent();
+            MySqlConnection mySqlConnection = new MySqlConnection();
+            connexio = new ConnexioBD(mySqlConnection, "localhost", "3306", "root", "", "projectedb");
+
             usuariActual = usuari;
+            DataContext = this;
+
+            ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
+            List<Activitat> llistaActivitats = activitatsBD.ObtenirActivitats();
+
+            listBoxActivitats.ItemsSource = llistaActivitats;
 
             if (!usuariActual.ModeCreador)
             {
@@ -57,5 +70,14 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             this.Close();
         }
 
+        private void buttonReservarActivitat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void listBoxActivitats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
