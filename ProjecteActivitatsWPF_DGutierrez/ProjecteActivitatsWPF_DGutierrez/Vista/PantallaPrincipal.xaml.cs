@@ -72,6 +72,14 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void buttonReservarActivitat_Click(object sender, RoutedEventArgs e)
         {
+            Activitat activitatReservar;
+
+            activitatReservar = (Activitat)listBoxActivitats.SelectedItem;
+
+            if (activitatReservar == null)
+                MessageBox.Show("Cap activitat seleccionada!");
+            else
+                MessageBox.Show("");
 
         }
 

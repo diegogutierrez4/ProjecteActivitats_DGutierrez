@@ -94,8 +94,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                     string durada = reader.GetString(reader.GetOrdinal("durada"));
                     decimal preu = reader.GetDecimal(reader.GetOrdinal("preu"));
                     int usuariCreador = reader.GetInt32(reader.GetOrdinal("usuariCreador"));
-                    string nomImatge = "/ImatgesActivitats/" + reader.GetString(reader.GetOrdinal("nomImatge"));
-
+                    string nomImatge = reader.GetString(reader.GetOrdinal("nomImatge"));
 
                     Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, nomImatge);
                     llistaActivitats.Add(activitat);

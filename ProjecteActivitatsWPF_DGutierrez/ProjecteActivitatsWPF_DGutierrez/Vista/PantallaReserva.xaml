@@ -1,0 +1,121 @@
+﻿<Window x:Class="ProjecteActivitatsWPF_DGutierrez.Vista.PantallaReserva"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjecteActivitatsWPF_DGutierrez.Vista"
+        mc:Ignorable="d"
+        Title="PantallaReserva" Height="600" Width="450"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
+    
+    <!--<Grid>
+        <Border Background="White" CornerRadius="10">
+            <TextBlock x:Name="textBlock_MissatgeCrarActivitat" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" FontSize="23" FontWeight="Bold" Foreground="#3aa9ad"><Run Language="es-es" Text="Reservar"/><Run Text=" activitat:"/><LineBreak/><Run Text=":"/></TextBlock>
+        </Border>
+
+        <StackPanel Margin="0,69,0,50">
+            <Grid Margin="0 7">
+                <Border BorderThickness="1" BorderBrush="#acb0af" CornerRadius="5" Width="222" HorizontalAlignment="Center">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Imatges/nom_icone.png" Height="24" Opacity="0.4"/>
+                        <TextBox x:Name="textBox_Nom" TextChanged="textBox_Nom_TextChanged" Style="{StaticResource textBox}" Text="Nom Activitat" GotFocus="textBox_Nom_GotFocus" Opacity="0.4"/>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Margin="0 7"/>
+            <Grid Margin="0 7">
+                <Border BorderThickness="1" BorderBrush="#acb0af" CornerRadius="5" Width="222" HorizontalAlignment="Center">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker x:Name="datePicker_DataReserva" Style="{StaticResource textBox}" Opacity="0.4" Text="Selecciona una data"/>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Margin="0 7"/>
+            <Grid Margin="0 7">
+                <Border BorderThickness="1" BorderBrush="#acb0af" CornerRadius="5" Width="222" HorizontalAlignment="Center">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Imatges/durada_icone.png" Height="24" Opacity="0.4"/>
+                        <TextBox x:Name="textBox_Durada" TextChanged="textBox_Durada_TextChanged" Style="{StaticResource textBox}" Text="Persones" GotFocus="textBox_Durada_GotFocus" Opacity="0.4"/>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Margin="0 7"/>
+            <Grid Margin="0 7"/>
+        </StackPanel>
+
+        --><!-- Botons de sortir i minimitzar --><!--
+        <Button x:Name="buttonMinimitzar"
+            Background="#FFEAEAEA"
+            BorderThickness="0"
+            Content="-"
+            Foreground="Black" 
+            Margin="347,16,59,0" 
+            Click="buttonMinimitzarClick"
+            Cursor="Hand" FontWeight="Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.5,0.5">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </Button.Resources>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+        <Button x:Name="buttonSortir"
+            Background="#3AA9AD"
+            BorderThickness="0"
+            Content="X"
+            Foreground="White" 
+            Margin="396,16,10,0" 
+            Click="buttonSortirClick"
+            Cursor="Hand" FontWeight="Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.5,0.5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </Button.Resources>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+        <Button x:Name="button_TornarPantallaActivitats" Style="{StaticResource botóNoSeleccionable}" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="54" Canvas.Top="496" Click="button_TornarPantallaActivitats_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="10,550,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter Content="{TemplateBinding Content}" />
+                </ControlTemplate>
+            </Button.Template>
+            <Image Source="/Imatges/returnBlue.png" Width="40" Height="40" OpacityMask="Black" Opacity="0.77"/>
+        </Button>
+        <Button x:Name="buttonCrearActivitat" Content="RESERVAR" Click="buttonCrearActivitat_Click" Style="{StaticResource botóIniciarSessio}" Margin="125,499,125,50"/>
+    </Grid>-->
+</Window>

@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ImatgesActivitats\Horari.png" />
+    <None Remove="ImatgesActivitats\descarga.jpg" />
+    <None Remove="ImatgesActivitats\escalador.jpg" />
+    <None Remove="ImatgesActivitats\futbol.jpg" />
+    <None Remove="ImatgesActivitats\kisspng-teamwork-computer-icons-clip-art-team-clipart-5adbc81ab80fc5.0063599115243530507539.png" />
     <None Remove="Imatges\add_logo2.png" />
     <None Remove="Imatges\categoria_icone.png" />
     <None Remove="Imatges\contra_logo.png" />
@@ -30,7 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="ImatgesActivitats\Horari.png">
+    <Resource Include="ImatgesActivitats\descarga.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitats\escalador.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitats\futbol.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitats\kisspng-teamwork-computer-icons-clip-art-team-clipart-5adbc81ab80fc5.0063599115243530507539.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\categoria_icone.png">

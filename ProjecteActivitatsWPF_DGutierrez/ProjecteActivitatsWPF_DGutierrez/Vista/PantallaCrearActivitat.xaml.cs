@@ -143,22 +143,23 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             if (openFileDialog.ShowDialog() == true)
             {
                 // Obté la ruta completa de l'element seleccionat
-                string imagePath = openFileDialog.FileName;
+                string rutaImatgeUsuari = openFileDialog.FileName;
 
                 // Crea la carpeta dins del projecte(si no existeix)
-                string folderPath = @"C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ImatgesActivitats";
-                Directory.CreateDirectory(folderPath);
+                string carpetaGuardar = @"C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ImatgesActivitats";
+                Directory.CreateDirectory(carpetaGuardar);
 
                 // Copia l'arxiu seleccionat a la carpeta
-                string destinationPath = System.IO.Path.Combine(folderPath, System.IO.Path.GetFileName(imagePath));
-                File.Copy(imagePath, destinationPath, true);
+                string rutaDesti = System.IO.Path.Combine(carpetaGuardar, System.IO.Path.GetFileName(rutaImatgeUsuari));
+                File.Copy(rutaImatgeUsuari, rutaDesti, true);
 
                 // Obtenir nom del arxiu
-                nomArxiu = System.IO.Path.GetFileName(destinationPath);
+                nomArxiu = System.IO.Path.GetFileName(rutaDesti);
 
-                nomArxiuSeleccionat = nomArxiu;
+                nomArxiuSeleccionat = "/ImatgesActivitats/" + nomArxiu;
             }
         }
+
         private void buttonCrearActivitat_Click(object sender, RoutedEventArgs e)
         {
             string nom = textBox_Nom.Text;

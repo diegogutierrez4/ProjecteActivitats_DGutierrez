@@ -38,7 +38,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
             this.Durada = durada;
             this.Preu = preu;
             this.UsuariCreador = usuariCreador;
-            this.nomImatge = nomImatge;
+            this.NomImatge = nomImatge;
         }
 
         // Propietats

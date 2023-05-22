@@ -16,6 +16,9 @@
     <Compile Update="Vista\PantallaRegistre.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Vista\PantallaReserva.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Vista\MainWindow.xaml">
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vista\PantallaRegistre.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\PantallaReserva.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

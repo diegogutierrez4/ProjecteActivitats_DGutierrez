@@ -100,7 +100,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjecteActivitatsWPF_DGutierrez;V1.0.0.0;component/vista/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjecteActivitatsWPF_DGutierrez;component/vista/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Vista\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
