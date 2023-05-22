@@ -49,6 +49,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         private void buttonSortirClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+           
         }
 
         private void buttonMinimitzarClick(object sender, RoutedEventArgs e)

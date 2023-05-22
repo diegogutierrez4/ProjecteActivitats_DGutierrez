@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Model
 {
@@ -24,11 +25,12 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         private string durada;
         private decimal preu;
         private int usuariCreador;
-        private string nomImatge;
+        private byte[] imatge;
+        private BitmapImage bmp;
 
         // Constructors
         public Activitat() { }
-        public Activitat(int id, string nom, string descripcio, string ubicacio, Categoria categoria, string durada, decimal preu, int usuariCreador, string nomImatge)
+        public Activitat(int id, string nom, string descripcio, string ubicacio, Categoria categoria, string durada, decimal preu, int usuariCreador, byte[] imatge, BitmapImage bmp)
         {
             this.Id = id;
             this.Nom = nom;
@@ -38,7 +40,8 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
             this.Durada = durada;
             this.Preu = preu;
             this.UsuariCreador = usuariCreador;
-            this.NomImatge = nomImatge;
+            this.Imatge = imatge;
+            this.Bmp = bmp;
         }
 
         // Propietats
@@ -50,6 +53,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public decimal Preu { get => preu; set => preu = value; }
         public Categoria Categoria { get => categoria; set => categoria = value; }
         public int UsuariCreador { get => usuariCreador; set => usuariCreador = value; }
-        public string NomImatge { get => nomImatge; set => nomImatge = value; }
+        public byte[] Imatge { get => imatge; set => imatge = value; }
+        public BitmapImage Bmp { get => bmp; set => bmp = value; }
     }
 }

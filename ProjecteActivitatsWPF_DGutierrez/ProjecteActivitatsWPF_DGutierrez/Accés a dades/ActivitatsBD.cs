@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using ProjecteActivitatsWPF_DGutierrez.Model;
 using System.Windows;
+using System.Data;
+using System.Windows.Media.Imaging;
+using ProjecteActivitatsWPF_DGutierrez.Vista;
+using System.IO;
+using Org.BouncyCastle.Utilities;
+using System.Windows.Media;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 {
@@ -24,7 +30,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         public ConnexioBD Connexio { get => connexio; set => connexio = value; }
 
         // Mètodes
-        public void AfegirActivitat(string nom, string ubicacio, string categoria, string descripcio, string durada, decimal preu, int usuariCreador, string nomImatge)
+        public void AfegirActivitat(string nom, string ubicacio, string categoria, string descripcio, string durada, decimal preu, int usuariCreador, byte[] imatge)
         {
             try
             {
@@ -40,7 +46,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                 try
                 {
                     // Insertar la taula 'activitats'
-                    string registrarActivitat = $"INSERT INTO activitats (nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, nomImatge) VALUES ('{nom}', '{ubicacio}', '{categoria}', '{descripcio}', '{durada}', '{preu}', {usuariCreador}, '{nomImatge}')";
+                    string registrarActivitat = $"INSERT INTO activitats (nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, imatge) VALUES ('{nom}', '{ubicacio}', '{categoria}', '{descripcio}', '{durada}', '{preu}', {usuariCreador}, '{imatge}')";
                     command.CommandText = registrarActivitat;
                     command.ExecuteNonQuery();
 
@@ -94,9 +100,10 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                     string durada = reader.GetString(reader.GetOrdinal("durada"));
                     decimal preu = reader.GetDecimal(reader.GetOrdinal("preu"));
                     int usuariCreador = reader.GetInt32(reader.GetOrdinal("usuariCreador"));
-                    string nomImatge = reader.GetString(reader.GetOrdinal("nomImatge"));
-
-                    Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, nomImatge);
+                    byte[] imatge = null;
+                    int columnIndex = reader.GetOrdinal("imatge");
+                                     
+                    Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, imatge, new BitmapImage());
                     llistaActivitats.Add(activitat);
                 }
                 reader.Close();
@@ -107,6 +114,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             }
             Connexio.Desconnectar();
             return llistaActivitats;
-        } 
+        }
     }
 }

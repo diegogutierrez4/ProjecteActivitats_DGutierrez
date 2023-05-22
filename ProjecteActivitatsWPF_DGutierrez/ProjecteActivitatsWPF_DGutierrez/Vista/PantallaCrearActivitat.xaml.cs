@@ -28,7 +28,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         ConnexioBD connexio;
 
         Usuari usuariActual;
-        private string nomArxiuSeleccionat;
+        private byte[] imatgeActivitat;
 
         public PantallaCrearActivitat(Usuari usuari)
         {
@@ -136,29 +136,24 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void Button_Imatge_Click(object sender, RoutedEventArgs e)
         {
+            // Crear una instancia de OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp|Todos los archivos|*.*";
-            string nomArxiu = "";
 
+            // Establecer las propiedades del diálogo
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif";
+            openFileDialog.Title = "Seleccionar imatge";
+
+            // Mostrar el diálogo y obtener el resultado
             if (openFileDialog.ShowDialog() == true)
             {
-                // Obté la ruta completa de l'element seleccionat
-                string rutaImatgeUsuari = openFileDialog.FileName;
+                // Obtener la ruta de la imagen seleccionada
+                string imagePath = openFileDialog.FileName;
 
-                // Crea la carpeta dins del projecte(si no existeix)
-                string carpetaGuardar = @"C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ImatgesActivitats";
-                Directory.CreateDirectory(carpetaGuardar);
-
-                // Copia l'arxiu seleccionat a la carpeta
-                string rutaDesti = System.IO.Path.Combine(carpetaGuardar, System.IO.Path.GetFileName(rutaImatgeUsuari));
-                File.Copy(rutaImatgeUsuari, rutaDesti, true);
-
-                // Obtenir nom del arxiu
-                nomArxiu = System.IO.Path.GetFileName(rutaDesti);
-
-                nomArxiuSeleccionat = "/ImatgesActivitats/" + nomArxiu;
+                // Leer los datos de la imagen como arreglo de bytes
+                imatgeActivitat = File.ReadAllBytes(imagePath);
             }
         }
+
 
         private void buttonCrearActivitat_Click(object sender, RoutedEventArgs e)
         {
@@ -169,7 +164,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string durada = textBox_Durada.Text;
             decimal preu = Convert.ToDecimal(textBox_Preu.Text);
             int usuariCreador = usuariActual.Id;
-            string nomImatge = nomArxiuSeleccionat;
+            byte[] imatge = imatgeActivitat;
 
             // Validacions de les dades de crear activitat
             if (nom.Length < 3)
@@ -203,7 +198,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             }
 
             ActivitatsBD activitat = new ActivitatsBD(connexio);
-            activitat.AfegirActivitat(nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, nomImatge);
+            activitat.AfegirActivitat(nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, imatge);
         }
     }
 }
