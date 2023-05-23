@@ -28,7 +28,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         ConnexioBD connexio;
 
         Usuari usuariActual;
-        private byte[] imatgeActivitat;
+        private string nomArxiuSeleccionat;
 
         public PantallaCrearActivitat(Usuari usuari)
         {
@@ -136,25 +136,29 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void Button_Imatge_Click(object sender, RoutedEventArgs e)
         {
-            // Crear una instancia de OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp|Todos los archivos|*.*";
+            string nomArxiu = "";
 
-            // Establecer las propiedades del diálogo
-            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif";
-            openFileDialog.Title = "Seleccionar imatge";
-
-            // Mostrar el diálogo y obtener el resultado
             if (openFileDialog.ShowDialog() == true)
             {
-                // Obtener la ruta de la imagen seleccionada
-                string imagePath = openFileDialog.FileName;
+                // Obté la ruta completa de l'element seleccionat
+                string rutaImatgeUsuari = openFileDialog.FileName;
 
-                // Leer los datos de la imagen como arreglo de bytes
-                imatgeActivitat = File.ReadAllBytes(imagePath);
+                string carpetaGuardar = @"C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ImatgesActivitat\";
+                // Crea la carpeta dins del projecte(si no existeix)matgesActivitats";
+                Directory.CreateDirectory(carpetaGuardar);
+
+                // Copia l'arxiu seleccionat a la carpeta
+                string rutaDesti = System.IO.Path.Combine(carpetaGuardar, System.IO.Path.GetFileName(rutaImatgeUsuari));
+                File.Copy(rutaImatgeUsuari, rutaDesti, true);
+
+                // Obtenir nom del arxiu
+                nomArxiu = System.IO.Path.GetFileName(rutaDesti);
+
+                nomArxiuSeleccionat = "/ImatgesActivitat/" + nomArxiu;
             }
         }
-
-
         private void buttonCrearActivitat_Click(object sender, RoutedEventArgs e)
         {
             string nom = textBox_Nom.Text;
@@ -164,7 +168,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string durada = textBox_Durada.Text;
             decimal preu = Convert.ToDecimal(textBox_Preu.Text);
             int usuariCreador = usuariActual.Id;
-            byte[] imatge = imatgeActivitat;
+            string imatge = nomArxiuSeleccionat;
 
             // Validacions de les dades de crear activitat
             if (nom.Length < 3)

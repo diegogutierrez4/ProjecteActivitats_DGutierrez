@@ -12,6 +12,7 @@ using ProjecteActivitatsWPF_DGutierrez.Vista;
 using System.IO;
 using Org.BouncyCastle.Utilities;
 using System.Windows.Media;
+using System.Drawing;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 {
@@ -30,7 +31,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         public ConnexioBD Connexio { get => connexio; set => connexio = value; }
 
         // Mètodes
-        public void AfegirActivitat(string nom, string ubicacio, string categoria, string descripcio, string durada, decimal preu, int usuariCreador, byte[] imatge)
+        public void AfegirActivitat(string nom, string ubicacio, string categoria, string descripcio, string durada, decimal preu, int usuariCreador, string imatge)
         {
             try
             {
@@ -92,18 +93,17 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 
                 while (reader.Read())
                 {
-                    int id = reader.GetInt32(reader.GetOrdinal("id_activitat"));
-                    string nom = reader.GetString(reader.GetOrdinal("nom"));
-                    string ubicacio = reader.GetString(reader.GetOrdinal("ubicacio"));
+                    int id = reader.GetInt32("id_activitat");
+                    string nom = reader.GetString("nom");
+                    string ubicacio = reader.GetString("ubicacio");
                     Categoria categoria = (Categoria)reader.GetOrdinal("categoria");
-                    string descripcio = reader.GetString(reader.GetOrdinal("descripcio"));
-                    string durada = reader.GetString(reader.GetOrdinal("durada"));
-                    decimal preu = reader.GetDecimal(reader.GetOrdinal("preu"));
-                    int usuariCreador = reader.GetInt32(reader.GetOrdinal("usuariCreador"));
-                    byte[] imatge = null;
-                    int columnIndex = reader.GetOrdinal("imatge");
-                                     
-                    Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, imatge, new BitmapImage());
+                    string descripcio = reader.GetString("descripcio");
+                    string durada = reader.GetString("durada");
+                    decimal preu = reader.GetDecimal("preu");
+                    int usuariCreador = reader.GetInt32("usuariCreador");
+                    string imatge = reader.GetString("imatge");
+
+                    Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, imatge);
                     llistaActivitats.Add(activitat);
                 }
                 reader.Close();
