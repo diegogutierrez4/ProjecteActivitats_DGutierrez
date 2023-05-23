@@ -50,7 +50,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         private void buttonSortirClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-           
         }
 
         private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
@@ -81,7 +80,11 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             if (activitatReservar == null)
                 MessageBox.Show("Cap activitat seleccionada!");
             else
-                MessageBox.Show("");
+            {
+                PantallaReserva reservaActivitat = new PantallaReserva(usuariActual, activitatReservar);
+                reservaActivitat.Show();
+                this.Close();
+            }
 
         }
 

@@ -11,25 +11,13 @@
         Background="Transparent"
         AllowsTransparency="True">
     
-    <!--<Grid>
+    <Grid>
         <Border Background="White" CornerRadius="10">
-            <TextBlock x:Name="textBlock_MissatgeCrarActivitat" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" FontSize="23" FontWeight="Bold" Foreground="#3aa9ad"><Run Language="es-es" Text="Reservar"/><Run Text=" activitat:"/><LineBreak/><Run Text=":"/></TextBlock>
+            <TextBlock x:Name="textBlock_ActivitatReservar" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" VerticalAlignment="Top" Width="324" FontSize="22" FontWeight="Bold" Foreground="#3aa9ad"><Run Language="es-es" Text="Reservar"/><Run Text=" activitat:"/><LineBreak/><Run Text=":"/></TextBlock>
         </Border>
 
         <StackPanel Margin="0,69,0,50">
-            <Grid Margin="0 7">
-                <Border BorderThickness="1" BorderBrush="#acb0af" CornerRadius="5" Width="222" HorizontalAlignment="Center">
-                    <Grid Margin="7 9">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="/Imatges/nom_icone.png" Height="24" Opacity="0.4"/>
-                        <TextBox x:Name="textBox_Nom" TextChanged="textBox_Nom_TextChanged" Style="{StaticResource textBox}" Text="Nom Activitat" GotFocus="textBox_Nom_GotFocus" Opacity="0.4"/>
-                    </Grid>
-                </Border>
-            </Grid>
+            <Grid Margin="0 7"/>
             <Grid Margin="0 7"/>
             <Grid Margin="0 7">
                 <Border BorderThickness="1" BorderBrush="#acb0af" CornerRadius="5" Width="222" HorizontalAlignment="Center">
@@ -52,7 +40,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/Imatges/durada_icone.png" Height="24" Opacity="0.4"/>
-                        <TextBox x:Name="textBox_Durada" TextChanged="textBox_Durada_TextChanged" Style="{StaticResource textBox}" Text="Persones" GotFocus="textBox_Durada_GotFocus" Opacity="0.4"/>
+                        <TextBox x:Name="textBox_NumPersones" TextChanged="textBox_Durada_TextChanged" Style="{StaticResource textBox}" Text="Persones" GotFocus="textBox_NumPersones_GotFocus" Opacity="0.4"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -60,7 +48,7 @@
             <Grid Margin="0 7"/>
         </StackPanel>
 
-        --><!-- Botons de sortir i minimitzar --><!--
+         <!-- Botons de sortir i minimitzar -->
         <Button x:Name="buttonMinimitzar"
             Background="#FFEAEAEA"
             BorderThickness="0"
@@ -114,8 +102,8 @@
                     <ContentPresenter Content="{TemplateBinding Content}" />
                 </ControlTemplate>
             </Button.Template>
-            <Image Source="/Imatges/returnBlue.png" Width="40" Height="40" OpacityMask="Black" Opacity="0.77"/>
+            <Image Source="/Imatges/returnBlue.png" Width="40" Height="40" OpacityMask="Black" Opacity="0.77" VerticalAlignment="Top"/>
         </Button>
-        <Button x:Name="buttonCrearActivitat" Content="RESERVAR" Click="buttonCrearActivitat_Click" Style="{StaticResource botóIniciarSessio}" Margin="125,499,125,50"/>
-    </Grid>-->
+        <Button x:Name="button_ReservarActivitat" Content="RESERVAR" Click="button_ReservarActivitat_Click" Style="{StaticResource botóIniciarSessio}" Margin="125,499,125,50"/>
+    </Grid>
 </Window>

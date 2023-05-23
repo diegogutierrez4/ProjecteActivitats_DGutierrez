@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
+using ProjecteActivitatsWPF_DGutierrez.Model;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -19,9 +22,74 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     /// </summary>
     public partial class PantallaReserva : Window
     {
-        public PantallaReserva()
+        int usuariActual;
+        ConnexioBD connexio;
+        Activitat activitatSeleccionada;
+        public PantallaReserva(Usuari usuari, Activitat activitatReservar)
         {
             InitializeComponent();
+            MySqlConnection mySqlConnection = new MySqlConnection();
+            connexio = new ConnexioBD(mySqlConnection, "localhost", "3306", "root", "", "projectedb");
+
+            usuariActual = usuari.Id;
+            activitatSeleccionada = activitatReservar;
+
+            textBlock_ActivitatReservar.Text = $"Reservar activitat: @{activitatReservar.Nom}";
+        }
+
+        private void buttonSortirClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void button_TornarPantallaActivitats_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+        // Dades de la reserva
+        private void textBox_NumPersones_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_NumPersones.Clear();
+        }
+
+        private void textBox_Durada_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        //--
+
+        private void button_ReservarActivitat_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime dataReserva = (DateTime)datePicker_DataReserva.SelectedDate;
+            int numPersones = Convert.ToInt32(textBox_NumPersones.Text);
+
+            if (numPersones < 1 || numPersones > 40)
+            {
+                MessageBox.Show("El nombre de persones ha de ser major d'1 i menor de 40.");
+                return;
+            }
+            if (dataReserva == DateTime.MinValue)
+            {
+                MessageBox.Show("La data de reserva no pot estar buida.");
+                return;
+            }
+            if (dataReserva < DateTime.Now)
+            {
+                MessageBox.Show("La date de reserva no pot ser anterior a la data actual.");
+                return;
+            }
+
+            decimal preuFinal = activitatSeleccionada.Preu * numPersones;
+            ReservesBD reserves = new ReservesBD(connexio);
+
+            reserves.AfegirReserva(usuariActual, activitatSeleccionada.Id, dataReserva, numPersones, preuFinal);
         }
     }
 }

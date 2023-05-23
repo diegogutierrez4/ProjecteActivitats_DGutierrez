@@ -10,15 +10,15 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
     {
         // Atributs
         private int id;
-        private Usuari usuariReserva;
-        private Activitat activitat;
+        private int usuariReserva;
+        private int activitat;
         private DateTime dataReserva;
         private int numPersones;
         private decimal preuFinal;
 
         // Constructors
         public Reserva() { }
-        public Reserva(int id, Usuari usuariReserva, Activitat activitat, DateTime dataReserva, int numPersones, decimal preuFinal)
+        public Reserva(int id, int usuariReserva, int activitat, DateTime dataReserva, int numPersones, decimal preuFinal)
         {
             this.Id = id;
             this.UsuariReserva = usuariReserva;
@@ -33,7 +33,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Model
         public DateTime DataReserva { get => dataReserva; set => dataReserva = value; }
         public int NumPersones { get => numPersones; set => numPersones = value; }
         public decimal PreuFinal { get => preuFinal; set => preuFinal = value; }
-        public Usuari UsuariReserva { get => usuariReserva; set => usuariReserva = value; }
-        public Activitat Activitat { get => activitat; set => activitat = value; }
+        public int UsuariReserva { get => usuariReserva; set => usuariReserva = value; }
+        public int Activitat { get => activitat; set => activitat = value; }
     }
 }
