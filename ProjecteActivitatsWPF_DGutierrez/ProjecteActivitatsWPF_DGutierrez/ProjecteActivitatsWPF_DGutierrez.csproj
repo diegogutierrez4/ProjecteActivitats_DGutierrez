@@ -36,6 +36,8 @@
     <None Remove="Imatges\return.png" />
     <None Remove="Imatges\returnBlue.png" />
     <None Remove="Imatges\ubicacio_icone.png" />
+    <None Remove="Imatges\userConfig.png" />
+    <None Remove="Imatges\user_config.png" />
     <None Remove="Imatges\usuari_logo.png" />
   </ItemGroup>
 
@@ -105,6 +107,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\ubicacio_icone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\userConfig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\user_config.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\usuari_logo.png">

@@ -46,3 +46,5 @@ C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteA
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaReserva.baml
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaConsultarReserves.g.cs
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaConsultarReserves.baml
+C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaModificarUsuari.g.cs
+C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\obj\Debug\net6.0-windows\Vista\PantallaModificarUsuari.baml

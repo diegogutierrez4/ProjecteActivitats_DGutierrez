@@ -15,7 +15,7 @@
         <Border Background="#FFC3C3C3" Grid.Column="0" CornerRadius="40 40 40 0" Margin="0,10,10,0">
             <Border Background="WhiteSmoke" Grid.Column="0" CornerRadius="40 40 40 0" Margin="10,-9,-8,10">
                 <Grid>
-                    <ListBox x:Name="listBoxActivitatsReservades" Margin="0,40,0,10" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="listBoxActivitatsReservades_SelectionChanged" >
+                    <ListBox x:Name="listBoxActivitatsReservades" Margin="0,40,10,10" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="listBoxActivitatsReservades_SelectionChanged" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -23,19 +23,26 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" Width="123" Height="123" Grid.Column="0"/>
-                                    <StackPanel Grid.Column="1" Margin="10 0 0 0">
-                                        <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20" Foreground="#FF3AA9AD"/>
-                                        <TextBlock Text="{Binding Ubicacio}" Margin="0 5 0 0" FontSize="16"/>
-                                        <TextBlock Text="{Binding Descripcio}" TextWrapping="Wrap" FontSize="16"/>
+                                    <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" Width="100" Height="100" Grid.Column="0"/>
+                                    <StackPanel Grid.Column="1" Margin="9 0 0 0">
+                                        <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="17" Foreground="#FF3AA9AD"/>
+                                        <TextBlock Text="{Binding DataReserva, StringFormat='Data reserva: {0}'}" Margin="0 5 0 0" FontSize="13"/>
+                                        <TextBlock Text="{Binding NumPersones, StringFormat='Persones: {0}'}" Margin="0 5 0 0" FontSize="13"/>
+                                        <TextBlock Text="{Binding PreuFinal, StringFormat='Preu final: {0}'}" Margin="0 5 0 0" FontSize="13"/>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
+                    <Button x:Name="button_CancelarReserva" Content="CANCEL·LAR" HorizontalAlignment="Left" Style="{StaticResource botóIniciarSessio}" VerticalAlignment="Top" Height="46" Width="113" Margin="132,383,0,0" Cursor="Hand" FontSize="13" Click="button_CancelarReserva_Click">
+                        <Button.Background>
+                            <SolidColorBrush Color="#FF3AA9AD" Opacity="0.95"/>
+                        </Button.Background>
+                    </Button>
                 </Grid>
             </Border>
         </Border>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="28,13,0,0" VerticalAlignment="Top" Width="300" FontSize="20" FontWeight="Bold" Foreground="#3aa9ad"><Run Language="es-es" Text="Activitats reservades:"/><LineBreak/><Run Language="es-es" Text=":"/></TextBlock>
 
         <!-- Botons de sortir, minimitzar i crear activitat -->
         <Button x:Name="buttonMinimitzar"

@@ -13,6 +13,9 @@
     <Compile Update="Vista\PantallaCrearActivitat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Vista\PantallaModificarUsuari.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Vista\PantallaPrincipal.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vista\PantallaCrearActivitat.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\PantallaModificarUsuari.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vista\PantallaPrincipal.xaml">

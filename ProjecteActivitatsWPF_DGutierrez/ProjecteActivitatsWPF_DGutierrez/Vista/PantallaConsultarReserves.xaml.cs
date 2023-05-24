@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using ProjecteActivitatsWPF_DGutierrez.Accés_a_dades;
+using ProjecteActivitatsWPF_DGutierrez.Model;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -19,14 +22,28 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     /// </summary>
     public partial class PantallaConsultarReserves : Window
     {
-        public PantallaConsultarReserves()
+        ConnexioBD connexio;
+        Usuari usuariActual;
+        List<ConsultaReserva> llistaConsultaReserves;
+        ReservesBD reservesBD;
+
+        public PantallaConsultarReserves(Usuari usuari)
         {
             InitializeComponent();
+            MySqlConnection mySqlConnection = new MySqlConnection();
+            connexio = new ConnexioBD(mySqlConnection, "localhost", "3306", "root", "", "projectedb");
+
+            usuariActual = usuari;
+
+            reservesBD = new ReservesBD(connexio);
+            llistaConsultaReserves = reservesBD.ObtenirReservesUsuari(usuariActual.Id);
+
+            listBoxActivitatsReservades.ItemsSource = llistaConsultaReserves;
         }
 
         private void buttonSortirClick(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
         }
 
         private void buttonMinimitzarClick(object sender, RoutedEventArgs e)
@@ -37,6 +54,24 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         private void listBoxActivitatsReservades_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void button_CancelarReserva_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultaReserva reservaCancelar;
+
+            reservaCancelar = (ConsultaReserva)listBoxActivitatsReservades.SelectedItem;
+
+            if (reservaCancelar == null)
+                MessageBox.Show("Cap reserva seleccionada!");
+            else
+            {
+                reservesBD.EliminarReserva(reservaCancelar.IdReserva);
+                MessageBox.Show("Reserva cancel·lada correctament!");
+
+                llistaConsultaReserves = reservesBD.ObtenirReservesUsuari(usuariActual.Id);
+                listBoxActivitatsReservades.ItemsSource = llistaConsultaReserves;
+            }
         }
     }
 }

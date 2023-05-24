@@ -28,57 +28,26 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         {
             try
             {
-                MySqlConnection connection = Connexio.Connectar();
-                MySqlCommand command = connection.CreateCommand();
-                MySqlTransaction transaction;
+                // Insertar la taula 'reserves'
+                string registrarReserva = "INSERT INTO reserves (usuariReserva, activitat, dataReserva, numPersones, preuFinal) VALUES (@usuariReserva, @activitat, @dataReserva, @numPersones, @preuFinal)";
+                MySqlCommand command = new MySqlCommand(registrarReserva, Connexio.Connectar());
 
-                // Iniciar transaction
-                transaction = connection.BeginTransaction();
-                command.Connection = connection;
-                command.Transaction = transaction;
+                command.Parameters.AddWithValue("@usuariReserva", usuariReserva);
+                command.Parameters.AddWithValue("@activitat", activitat);
+                command.Parameters.AddWithValue("@dataReserva", dataReserva);
+                command.Parameters.AddWithValue("@numPersones", numPersones);
+                command.Parameters.AddWithValue("@preuFinal", preuFinal);
 
-                try
-                {
-                    // Insertar la taula 'reserves'
-                    string registrarReserva = "INSERT INTO reserves (usuariReserva, activitat, dataReserva, numPersones, preuFinal) VALUES (@usuariReserva, @activitat, @dataReserva, @numPersones, @preuFinal)";
-                    command.CommandText = registrarReserva;
+                command.ExecuteNonQuery();
 
-                    command.Parameters.AddWithValue("@usuariReserva", usuariReserva);
-                    command.Parameters.AddWithValue("@activitat", activitat);
-                    command.Parameters.AddWithValue("@dataReserva", dataReserva);
-                    command.Parameters.AddWithValue("@numPersones", numPersones);
-                    command.Parameters.AddWithValue("@preuFinal", preuFinal);
+                MessageBox.Show("Enhorabona, activitat reservada correctament!");
 
-                    command.ExecuteNonQuery();
-
-                    // Obtener ID de la reserva insertada anteriorment
-                    int idReserva = (int)command.LastInsertedId;
-
-                    // Insertar a la taula 'usuari_activitat'
-                    string registrarUsuariReserva = $"INSERT INTO usuari_reserva (usuari_id, reserva_id) VALUES ({usuariReserva}, {idReserva})";
-                    command.CommandText = registrarUsuariReserva;
-                    command.ExecuteNonQuery();
-
-                    // Confirmar la transaction
-                    transaction.Commit();
-
-                    MessageBox.Show("Enhorabona, activitat reservada correctament!");
-                }
-                catch (Exception ex)
-                {
-                    // Revertir la transaction en cas d'error
-                    transaction.Rollback();
-                    MessageBox.Show("Error en l'execució de la transacció: " + ex.Message);
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error a l'obrir la BD: " + ex.Message);
             }
-            finally
-            {
-                Connexio.Desconnectar();
-            }
+            Connexio.Desconnectar();
         }
 
         public List<Reserva> ObtenirReserves()
@@ -111,6 +80,54 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             }
             Connexio.Desconnectar();
             return llistaReserves;
+        }
+
+        public List<ConsultaReserva> ObtenirReservesUsuari(int usuariId)
+        {
+            List<ConsultaReserva> llistaReserves = new List<ConsultaReserva>();
+
+            try
+            {
+                string obtenirReserves = $"SELECT a.nom, a.imatge, r.id_reserva, r.dataReserva, r.numPersones, r.preuFinal FROM reserves r JOIN activitats a ON r.activitat = a.id_activitat WHERE r.usuariReserva = {usuariId}";
+                MySqlCommand command = new MySqlCommand(obtenirReserves, Connexio.Connectar());
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ConsultaReserva consultaReserva = new ConsultaReserva();
+
+                    consultaReserva.Nom = reader.GetString("nom");
+                    consultaReserva.Imatge = reader.GetString("imatge");
+                    consultaReserva.IdReserva = reader.GetInt32("id_reserva");
+                    consultaReserva.DataReserva = reader.GetDateTime("dataReserva").Date;
+                    consultaReserva.NumPersones = reader.GetInt32("numPersones");
+                    consultaReserva.PreuFinal = reader.GetDecimal("preuFinal");
+
+                    llistaReserves.Add(consultaReserva);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error a l'obtenir les reserves de la BD: " + ex.Message);
+            }
+            Connexio.Desconnectar();
+            return llistaReserves;
+        }
+
+        public void EliminarReserva(int idReserva)
+        {
+            try
+            {
+                string eliminarReserva = $"DELETE FROM reserves WHERE id_reserva = {idReserva}";
+                MySqlCommand command = new MySqlCommand(eliminarReserva, Connexio.Connectar());
+                MySqlDataReader reader = command.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error a l'obtenir les reserves de la BD: " + ex.Message);
+            }
+            Connexio.Desconnectar();
         }
     }
 }

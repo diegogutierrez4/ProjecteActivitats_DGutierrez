@@ -110,14 +110,13 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         {
             textBox_OrdenarPerUbicacio.Clear();
         }
-
-        private void comboBox_Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
         private void textBox_OrdenarPerDurada_GotFocus(object sender, RoutedEventArgs e)
         {
             textBox_OrdenarPerDurada.Clear();
+        }
+        private void comboBox_Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void radioButton_OrdenarPreuAsc_Checked(object sender, RoutedEventArgs e)
@@ -143,9 +142,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
             foreach(Activitat activitat in llistaActivitats)
             {
-                if (activitat.Ubicacio != ubicacioOrdenar && ubicacioOrdenar != "Ubicació")
+                if (activitat.Ubicacio != ubicacioOrdenar && ubicacioOrdenar != string.Empty)
                     llistaActivitatFiltrada.Remove(activitat);
-                if (activitat.Durada != duradaOrdenar && duradaOrdenar != "Durada")
+                if (activitat.Durada != duradaOrdenar && duradaOrdenar != string.Empty)
                     llistaActivitatFiltrada.Remove(activitat);
                 if (activitat.Categoria.ToString() != categoriaOrdenar)
                     llistaActivitatFiltrada.Remove(activitat);
@@ -169,12 +168,21 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             textBox_OrdenarPerUbicacio.Text = "Ubicació";
             textBox_OrdenarPerDurada.Text = "Durada";
             comboBox_OrdenarPerCategories.SelectedItem = null;
+            radioButton_OrdenarPreuAsc.IsChecked = false;
+            radioButton_OrdenarPreuDesc.IsChecked = false;
         }
 
         private void buttonConsultarReserves_Click(object sender, RoutedEventArgs e)
         {
-            PantallaConsultarReserves consultaReserves = new PantallaConsultarReserves();
+            PantallaConsultarReserves consultaReserves = new PantallaConsultarReserves(usuariActual);
             consultaReserves.Show();
+        }
+
+        private void button_ModificarUsuari_Click(object sender, RoutedEventArgs e)
+        {
+            PantallaModificarUsuari modificarUsuari = new PantallaModificarUsuari(usuariActual);
+            modificarUsuari.Show();
+            this.Close();
         }
     }
 }
