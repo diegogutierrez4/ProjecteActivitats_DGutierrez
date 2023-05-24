@@ -46,11 +46,11 @@
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Inicia sessió a l'aplicació!" Style="{StaticResource titolText}" Foreground="#3AA9AD"/>
                 <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
-                    <Button Style="{StaticResource botóIconesIniciSessió}">
+                    <Button Style="{StaticResource botóIconesIniciSessió}" Click="Button_Click_1">
                         <Image Source="/Imatges/google_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
 
-                    <Button Style="{StaticResource botóIconesIniciSessió}">
+                    <Button Style="{StaticResource botóIconesIniciSessió}" Click="Button_Click">
                         <Image Source="/Imatges/instagram_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
 

@@ -25,6 +25,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     {
         Usuari usuariActual;
         ConnexioBD connexio;
+        List<Activitat> llistaActivitats;
 
         public PantallaPrincipal(Usuari usuari)
         {
@@ -42,7 +43,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             }
 
             ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
-            List<Activitat> llistaActivitats = activitatsBD.ObtenirActivitats();
+            llistaActivitats = activitatsBD.ObtenirActivitats();
 
             listBoxActivitats.ItemsSource = llistaActivitats;
 
@@ -159,10 +160,21 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             }
             
             listBoxActivitats.ItemsSource = llistaActivitatFiltrada;
+        }
+
+        private void button_EliminarFiltres_Click(object sender, RoutedEventArgs e)
+        {
+            listBoxActivitats.ItemsSource = llistaActivitats;
 
             textBox_OrdenarPerUbicacio.Text = "Ubicació";
             textBox_OrdenarPerDurada.Text = "Durada";
             comboBox_OrdenarPerCategories.SelectedItem = null;
+        }
+
+        private void buttonConsultarReserves_Click(object sender, RoutedEventArgs e)
+        {
+            PantallaConsultarReserves consultaReserves = new PantallaConsultarReserves();
+            consultaReserves.Show();
         }
     }
 }

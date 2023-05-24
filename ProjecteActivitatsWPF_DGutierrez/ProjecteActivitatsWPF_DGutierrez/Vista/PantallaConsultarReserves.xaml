@@ -1,0 +1,73 @@
+﻿<Window x:Class="ProjecteActivitatsWPF_DGutierrez.Vista.PantallaConsultarReserves"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjecteActivitatsWPF_DGutierrez.Vista"
+        mc:Ignorable="d"
+        Title="PantallaConsultarReserves" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Grid>
+        <Border Background="#FFC3C3C3" Grid.Column="0" CornerRadius="40 40 40 0" Margin="0,10,10,0">
+            <Border Background="WhiteSmoke" Grid.Column="0" CornerRadius="40 40 40 0" Margin="10,-9,-8,10">
+                <Grid>
+                    <ListBox x:Name="listBoxActivitatsReservades" Margin="0,40,0,10" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="listBoxActivitatsReservades_SelectionChanged" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" Width="123" Height="123" Grid.Column="0"/>
+                                    <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                                        <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20" Foreground="#FF3AA9AD"/>
+                                        <TextBlock Text="{Binding Ubicacio}" Margin="0 5 0 0" FontSize="16"/>
+                                        <TextBlock Text="{Binding Descripcio}" TextWrapping="Wrap" FontSize="16"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+        </Border>
+
+        <!-- Botons de sortir, minimitzar i crear activitat -->
+        <Button x:Name="buttonMinimitzar"
+            Background="#FFEAEAEA"
+            BorderThickness="0"
+            Content="-"
+            Foreground="Black" 
+            Margin="284,17,72,0" 
+            Click="buttonMinimitzarClick"
+            Cursor="Hand" FontWeight="Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="21">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="buttonSortir"
+            Background="#3AA9AD"
+            BorderThickness="0"
+            Content="X"
+            Foreground="White" 
+            Margin="334,17,20,0" 
+            Click="buttonSortirClick"
+            Cursor="Hand" FontWeight="Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="21"
+                            >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

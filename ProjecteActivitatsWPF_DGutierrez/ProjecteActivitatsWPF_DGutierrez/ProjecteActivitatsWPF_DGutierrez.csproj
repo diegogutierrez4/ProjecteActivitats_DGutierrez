@@ -19,6 +19,7 @@
     <None Remove="ImatgesActivitat\golf.png" />
     <None Remove="ImatgesActivitat\timwor.png" />
     <None Remove="Imatges\add_logo2.png" />
+    <None Remove="Imatges\basura.png" />
     <None Remove="Imatges\categoria_icone.png" />
     <None Remove="Imatges\contra_logo.png" />
     <None Remove="Imatges\correu_logo.png" />
@@ -46,6 +47,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="ImatgesActivitat\timwor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imatges\basura.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\categoria_icone.png">

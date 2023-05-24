@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\DAW1\ProjecteActivitats_DGutierrez\ProjecteActivitatsWPF_DGutierrez\ProjecteActivitatsWPF_DGutierrez\App.xaml
-51250712565
+6-1625962715
 
-14-579781631
+15-1820866276
 201709550025
-Vista\MainWindow.xaml;Vista\PantallaCrearActivitat.xaml;Vista\PantallaPrincipal.xaml;Vista\PantallaRegistre.xaml;Vista\PantallaReserva.xaml;
+Vista\MainWindow.xaml;Vista\PantallaConsultarReserves.xaml;Vista\PantallaCrearActivitat.xaml;Vista\PantallaPrincipal.xaml;Vista\PantallaRegistre.xaml;Vista\PantallaReserva.xaml;
 
 False
 

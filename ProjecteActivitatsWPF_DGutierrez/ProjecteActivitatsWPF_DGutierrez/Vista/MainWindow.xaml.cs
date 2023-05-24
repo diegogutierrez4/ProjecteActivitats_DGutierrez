@@ -18,6 +18,7 @@ using ProjecteActivitatsWPF_DGutierrez.Model;
 using System.Runtime.InteropServices;
 using System.Windows.Automation;
 using System.Windows.Interop;
+using System.Diagnostics;
 
 namespace ProjecteActivitatsWPF_DGutierrez.Vista
 {
@@ -97,6 +98,26 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
                 this.Close();
             }
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://www.instagram.com/churumbeheredia1/?hl=es";
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string url = "https://olvidona.com/";
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
         }
     }
 }

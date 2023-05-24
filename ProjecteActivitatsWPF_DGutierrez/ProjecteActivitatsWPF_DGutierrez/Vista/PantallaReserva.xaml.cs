@@ -22,7 +22,8 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
     /// </summary>
     public partial class PantallaReserva : Window
     {
-        int usuariActual;
+        Usuari usuariActual;
+        int usuariAct;
         ConnexioBD connexio;
         Activitat activitatSeleccionada;
         public PantallaReserva(Usuari usuari, Activitat activitatReservar)
@@ -31,7 +32,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             MySqlConnection mySqlConnection = new MySqlConnection();
             connexio = new ConnexioBD(mySqlConnection, "localhost", "3306", "root", "", "projectedb");
 
-            usuariActual = usuari.Id;
+            usuariAct = usuari.Id;
+            usuariActual = usuari;
+
             activitatSeleccionada = activitatReservar;
 
             textBlock_ActivitatReservar.Text = $"Reservar activitat: @{activitatReservar.Nom}";
@@ -49,8 +52,8 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void button_TornarPantallaActivitats_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal(usuariActual);
+            pantallaPrincipal.Show();
             this.Close();
         }
         // Dades de la reserva
@@ -89,7 +92,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             decimal preuFinal = activitatSeleccionada.Preu * numPersones;
             ReservesBD reserves = new ReservesBD(connexio);
 
-            reserves.AfegirReserva(usuariActual, activitatSeleccionada.Id, dataReserva, numPersones, preuFinal);
+            reserves.AfegirReserva(usuariAct, activitatSeleccionada.Id, dataReserva, numPersones, preuFinal);
         }
     }
 }
