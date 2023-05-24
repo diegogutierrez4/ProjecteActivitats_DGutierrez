@@ -39,6 +39,23 @@
                         </Button.Template>
                         <Image Source="/Imatges/return.png" Width="48" Height="45" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
+                    <Grid Height="348" Canvas.Top="47" Width="170" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button x:Name="button_Filtrar" Content="FILTRAR" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Height="28" Width="70" Click="button_Filtrar_Click"/>
+                        <ComboBox x:Name="comboBox_OrdenarPerCategories" Style="{StaticResource textBox}" Text="Categoria" Opacity="0.69" Margin="10,150,10,170"/>
+                        <TextBox x:Name="textBox_OrdenarPerUbicacio" TextChanged="textBox_Ubicacio_TextChanged" Style="{StaticResource textBox}" Text="Ubicació" GotFocus="textBox_OrdenarPerUbicacio_GotFocus" Opacity="0.69" Margin="10,41,10,279"/>
+                        <TextBlock Text="PREU:" Margin="10,202,119,120" Style="{StaticResource titolText}" FontSize="15"/>
+                        <RadioButton x:Name="radioButton_OrdenarPreuDesc" Content="Major a menor" HorizontalAlignment="Center" Margin="0,233,0,0" VerticalAlignment="Top" FontSize="13" Checked="radioButton_OrdenarPreuDesc_Checked"/>
+                        <RadioButton x:Name="radioButton_OrdenarPreuAsc" Content="Menor a major" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" FontSize="13" Checked="radioButton_OrdenarPreuAsc_Checked"/>
+                        <TextBox x:Name="textBox_OrdenarPerDurada" TextChanged="textBox_Ubicacio_TextChanged" Style="{StaticResource textBox}" Text="Durada" Opacity="0.69" Margin="10,95,10,225" GotFocus="textBox_OrdenarPerDurada_GotFocus"/>
+                        <Button x:Name="button_EliminarFiltres" Style="{StaticResource botóNoSeleccionable}" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="54" Canvas.Top="496" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="10,298,0,0">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Image Source="/Imatges/returnBlue.png" Width="40" Height="40" OpacityMask="Black" Opacity="0.77" VerticalAlignment="Top"/>
+                        </Button>
+                    </Grid>
                 </Canvas>
 
                 <StackPanel VerticalAlignment="Center"/>
@@ -57,7 +74,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="{Binding Imatge}" Width="123" Height="123" Grid.Column="0"/>
+                                <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" Width="123" Height="123" Grid.Column="0"/>
                                 <StackPanel Grid.Column="1" Margin="10 0 0 0">
                                     <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20" Foreground="#FF3AA9AD"/>
                                     <TextBlock Text="{Binding Ubicacio}" Margin="0 5 0 0" FontSize="16"/>

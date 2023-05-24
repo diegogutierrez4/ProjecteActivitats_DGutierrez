@@ -96,13 +96,15 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                     int id = reader.GetInt32("id_activitat");
                     string nom = reader.GetString("nom");
                     string ubicacio = reader.GetString("ubicacio");
-                    Categoria categoria = (Categoria)reader.GetOrdinal("categoria");
+                    string categoriaString = reader.GetString(reader.GetOrdinal("categoria"));
+                    Categoria categoria = (Categoria)Enum.Parse(typeof(Categoria), categoriaString);
                     string descripcio = reader.GetString("descripcio");
                     string durada = reader.GetString("durada");
                     decimal preu = reader.GetDecimal("preu");
                     int usuariCreador = reader.GetInt32("usuariCreador");
                     string imatge = reader.GetString("imatge");
 
+                    
                     Activitat activitat = new Activitat(id, nom, descripcio, ubicacio, categoria, durada, preu, usuariCreador, imatge);
                     llistaActivitats.Add(activitat);
                 }

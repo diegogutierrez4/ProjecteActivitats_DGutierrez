@@ -35,6 +35,12 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             usuariActual = usuari;
             DataContext = this;
 
+            Array llistaCategories = Enum.GetValues(typeof(Categoria));
+            foreach (Categoria categoria in llistaCategories)
+            {
+                comboBox_OrdenarPerCategories.Items.Add(categoria);
+            }
+
             ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
             List<Activitat> llistaActivitats = activitatsBD.ObtenirActivitats();
 
@@ -91,6 +97,72 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         private void listBoxActivitats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        // Filtrar
+
+        private void textBox_Ubicacio_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void textBox_OrdenarPerUbicacio_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_OrdenarPerUbicacio.Clear();
+        }
+
+        private void comboBox_Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void textBox_OrdenarPerDurada_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_OrdenarPerDurada.Clear();
+        }
+
+        private void radioButton_OrdenarPreuAsc_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void radioButton_OrdenarPreuDesc_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_Filtrar_Click(object sender, RoutedEventArgs e)
+        {
+            string ubicacioOrdenar = textBox_OrdenarPerUbicacio.Text;
+            string duradaOrdenar = textBox_OrdenarPerDurada.Text;
+            string categoriaOrdenar = comboBox_OrdenarPerCategories.Text;
+
+            ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
+            List<Activitat> llistaActivitats = activitatsBD.ObtenirActivitats();
+
+            List<Activitat> llistaActivitatFiltrada = llistaActivitats.ToList();
+
+            foreach(Activitat activitat in llistaActivitats)
+            {
+                if (activitat.Ubicacio != ubicacioOrdenar && ubicacioOrdenar != "Ubicació")
+                    llistaActivitatFiltrada.Remove(activitat);
+                if (activitat.Durada != duradaOrdenar && duradaOrdenar != "Durada")
+                    llistaActivitatFiltrada.Remove(activitat);
+                if (activitat.Categoria.ToString() != categoriaOrdenar)
+                    llistaActivitatFiltrada.Remove(activitat);
+            }
+
+            if (radioButton_OrdenarPreuAsc.IsChecked == true)
+                llistaActivitatFiltrada.OrderBy(activitat => activitat.Preu);
+            if (radioButton_OrdenarPreuDesc.IsChecked == true)
+            {
+                llistaActivitatFiltrada.OrderBy(activitat => activitat.Preu);
+                llistaActivitatFiltrada.Reverse();
+            }
+            
+            listBoxActivitats.ItemsSource = llistaActivitatFiltrada;
+
+            textBox_OrdenarPerUbicacio.Text = "Ubicació";
+            textBox_OrdenarPerDurada.Text = "Durada";
+            comboBox_OrdenarPerCategories.SelectedItem = null;
         }
     }
 }
