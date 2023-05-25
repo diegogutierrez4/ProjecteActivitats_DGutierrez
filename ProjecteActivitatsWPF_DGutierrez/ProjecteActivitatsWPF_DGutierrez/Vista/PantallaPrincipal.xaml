@@ -83,7 +83,7 @@
         <!-- Activitats -->
         <Border Background="White" Grid.Column="1" CornerRadius="0 10 10 0">
             <Grid>
-                <ListBox x:Name="listBoxActivitats" SelectionChanged="listBoxActivitats_SelectionChanged" Margin="0,33,0,9" Background="{x:Null}" BorderBrush="{x:Null}" >
+                <ListBox x:Name="listBoxActivitats" SelectionChanged="listBoxActivitats_SelectionChanged" Margin="0,33,0,9" Background="{x:Null}" BorderBrush="{x:Null}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -92,11 +92,20 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" VerticalAlignment="Center" Width="144" Height="144" Grid.Column="0"/>
-                                <StackPanel Grid.Column="1" Margin="13 10 0 0">
-                                    <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20" Foreground="#FF3AA9AD"/>
-                                    <TextBlock Text="{Binding Ubicacio, StringFormat='Ubicació: {0}'}" Margin="0 5 0 0" FontSize="16"/>
-                                    <TextBlock Text="{Binding Descripcio, StringFormat='Descripció: : {0}'}" TextWrapping="Wrap" FontSize="16"/>
-                                    <TextBlock Text="{Binding Preu, StringFormat='Preu: : {0}'}" TextWrapping="Wrap" FontSize="16"/>
+                                <StackPanel Grid.Column="1" Margin="13 4 0 0">
+                                    <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20" Foreground="#FF3AA9AD" Margin="0 0 0 5"/>
+                                    <TextBlock FontSize="16" Margin="5 0 0 0">
+                            <Run FontWeight="Bold">Ubicació:</Run>
+                            <Run Text="{Binding Ubicacio}"/>
+                                    </TextBlock>
+                                    <TextBlock FontSize="16" TextWrapping="Wrap" MaxWidth="480" Margin="5 0 0 0">
+                            <Run FontWeight="Bold">Descripció:</Run>
+                            <Run Text="{Binding Descripcio}"/>
+                                    </TextBlock>
+                                    <TextBlock FontSize="16" Margin="5 0 0 0">
+                            <Run FontWeight="Bold">Preu:</Run>
+                            <Run Text="{Binding Preu}"/>
+                                    </TextBlock>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
@@ -143,7 +152,7 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="56" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="608,484,0,0" Grid.Column="1">
+        <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="56" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="579,484,0,0" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <ContentPresenter Content="{TemplateBinding Content}" />
@@ -151,7 +160,7 @@
             </Button.Template>
             <Image Source="/Imatges/add_logo2.png" Width="50" Height="50" OpacityMask="Black" Opacity="0.77"/>
         </Button>
-        <Button x:Name="button_EliminarActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_EliminarActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="540,487,0,0" Grid.Column="1">
+        <Button x:Name="button_EliminarActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_EliminarActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="524,487,0,0" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <ContentPresenter Content="{TemplateBinding Content}" />

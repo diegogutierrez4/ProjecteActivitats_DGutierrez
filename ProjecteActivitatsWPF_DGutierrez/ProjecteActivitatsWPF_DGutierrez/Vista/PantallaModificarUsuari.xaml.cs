@@ -100,7 +100,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string correu = textBox_Correu.Text;
             string contrasenya = passwordBox_Contrasenya.Password;
 
-            // Validacions de les dades de registre
+            // Validacions de les dades modificades
             if (nom.Length < 3 || cognom.Length < 3)
             {
                 MessageBox.Show("El nom i el cognom han de tenir almenys 3 caràcters.");

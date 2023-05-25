@@ -15,9 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ImatgesActivitat\24.jpg" />
+    <None Remove="ImatgesActivitat\cata.jpg" />
     <None Remove="ImatgesActivitat\escalador.jpg" />
+    <None Remove="ImatgesActivitat\finca.jpg" />
     <None Remove="ImatgesActivitat\golf.png" />
+    <None Remove="ImatgesActivitat\gravel-bike-vs-mountain-bike-main.jpg" />
+    <None Remove="ImatgesActivitat\tallerculinari.jpg" />
     <None Remove="ImatgesActivitat\timwor.png" />
+    <None Remove="ImatgesActivitat\Windsurf.jpg" />
     <None Remove="Imatges\add_logo2.png" />
     <None Remove="Imatges\basura.png" />
     <None Remove="Imatges\basura2.png" />
@@ -44,6 +50,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ImatgesActivitat\24.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\cata.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\finca.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\gravel-bike-vs-mountain-bike-main.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\tallerculinari.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\Windsurf.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imatges\basura2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
