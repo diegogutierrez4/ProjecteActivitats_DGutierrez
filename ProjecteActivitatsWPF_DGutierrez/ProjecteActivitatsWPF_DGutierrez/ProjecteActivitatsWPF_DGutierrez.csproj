@@ -20,6 +20,7 @@
     <None Remove="ImatgesActivitat\timwor.png" />
     <None Remove="Imatges\add_logo2.png" />
     <None Remove="Imatges\basura.png" />
+    <None Remove="Imatges\basura2.png" />
     <None Remove="Imatges\categoria_icone.png" />
     <None Remove="Imatges\contra_logo.png" />
     <None Remove="Imatges\correu_logo.png" />
@@ -35,10 +36,17 @@
     <None Remove="Imatges\preu_icone.png" />
     <None Remove="Imatges\return.png" />
     <None Remove="Imatges\returnBlue.png" />
+    <None Remove="Imatges\reverse.png" />
     <None Remove="Imatges\ubicacio_icone.png" />
     <None Remove="Imatges\userConfig.png" />
     <None Remove="Imatges\user_config.png" />
     <None Remove="Imatges\usuari_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imatges\basura2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -106,13 +114,13 @@
     <Resource Include="Imatges\returnBlue.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Imatges\reverse.png">
+      <CopyToOutputDirectory>s</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imatges\ubicacio_icone.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\userConfig.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Imatges\user_config.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\usuari_logo.png">

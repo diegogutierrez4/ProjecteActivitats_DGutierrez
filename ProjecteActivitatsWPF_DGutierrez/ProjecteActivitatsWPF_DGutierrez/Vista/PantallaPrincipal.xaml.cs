@@ -26,6 +26,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         Usuari usuariActual;
         ConnexioBD connexio;
         List<Activitat> llistaActivitats;
+        Activitat activitatSeleccionada;
 
         public PantallaPrincipal(Usuari usuari)
         {
@@ -51,6 +52,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             {
                 button_AfegirActivitat.Visibility = Visibility.Hidden;
             }
+            button_EliminarActivitat.Visibility = Visibility.Hidden;
         }
 
         // Botons
@@ -97,7 +99,24 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void listBoxActivitats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
 
+            activitatSeleccionada = (Activitat)listBoxActivitats.SelectedItem;
+
+            List<int> llistaIdActivitats = activitatsBD.ObtenirIdActivitats(usuariActual.Id);
+
+            bool mostrarBotoEliminar = false;
+
+            foreach(int id in llistaIdActivitats)
+            {
+                if(activitatSeleccionada.Id == id)
+                    mostrarBotoEliminar = true;
+            }
+
+            if(mostrarBotoEliminar)
+            {
+                button_EliminarActivitat.Visibility = Visibility.Visible;
+            }
         }
         // Filtrar
 
@@ -183,6 +202,17 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             PantallaModificarUsuari modificarUsuari = new PantallaModificarUsuari(usuariActual);
             modificarUsuari.Show();
             this.Close();
+        }
+
+        private void button_EliminarActivitat_Click(object sender, RoutedEventArgs e)
+        {
+            ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
+
+            activitatsBD.EliminarActivitat(activitatSeleccionada.Id);
+
+            llistaActivitats = activitatsBD.ObtenirActivitats();
+
+            listBoxActivitats.ItemsSource = llistaActivitats;
         }
     }
 }

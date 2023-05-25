@@ -39,38 +39,36 @@
                         </Button.Template>
                         <Image Source="/Imatges/return.png" Width="48" Height="45" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
-                    
+
                     <Grid Height="348" Canvas.Top="47" Width="170" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <Button x:Name="button_Filtrar" Content="FILTRAR" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Height="26" Width="70" Click="button_Filtrar_Click"/>
-                        <ComboBox x:Name="comboBox_OrdenarPerCategories" Style="{StaticResource textBox}" Text="Categoria" Opacity="0.69" Margin="10,187,10,133"/>
-                        <TextBox x:Name="textBox_OrdenarPerUbicacio" TextChanged="textBox_Ubicacio_TextChanged" Style="{StaticResource textBox}" GotFocus="textBox_OrdenarPerUbicacio_GotFocus" Opacity="0.69" Margin="10,78,10,242"/>
-                        <TextBlock Text="PREU:" Margin="10,236,119,86" Style="{StaticResource titolText}" FontSize="15"/>
-                        <RadioButton x:Name="radioButton_OrdenarPreuDesc" Content="Major a menor" HorizontalAlignment="Left" Margin="16,256,0,0" VerticalAlignment="Top" FontSize="13" Checked="radioButton_OrdenarPreuDesc_Checked" Foreground="White"/>
-                        <RadioButton x:Name="radioButton_OrdenarPreuAsc" Content="Menor a major" HorizontalAlignment="Left" Margin="16,276,0,0" VerticalAlignment="Top" FontSize="13" Checked="radioButton_OrdenarPreuAsc_Checked" Foreground="White"/>
-                        <TextBox x:Name="textBox_OrdenarPerDurada" TextChanged="textBox_Ubicacio_TextChanged" Style="{StaticResource textBox}" Opacity="0.69" Margin="10,132,10,188" GotFocus="textBox_OrdenarPerDurada_GotFocus"/>
-                        <Button x:Name="button_ModificarUsuari" Style="{StaticResource botóNoSeleccionable}" Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="54" Canvas.Top="496" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="0,-33,0,0" Click="button_ModificarUsuari_Click">
+                        <Button x:Name="button_Filtrar" Content="FILTRAR" Opacity="0.88" HorizontalAlignment="Center" Margin="0,280,0,0" VerticalAlignment="Top" Height="22" Width="70" Click="button_Filtrar_Click"/>
+                        <ComboBox x:Name="comboBox_OrdenarPerCategories" Style="{StaticResource textBox}" Text="Categoria" Opacity="0.69" Margin="10,157,10,167"/>
+                        <TextBox x:Name="textBox_OrdenarPerUbicacio" TextChanged="textBox_Ubicacio_TextChanged" Style="{StaticResource textBox}" GotFocus="textBox_OrdenarPerUbicacio_GotFocus" Opacity="0.69" Margin="10,48,10,276"/>
+                        <TextBlock Text="PREU" Margin="10,194,119,133" Style="{StaticResource titolText}" FontSize="13"/>
+                        <RadioButton x:Name="radioButton_OrdenarPreuDesc" Content="Major a menor" HorizontalAlignment="Left" Margin="16,220,0,0" VerticalAlignment="Top" FontSize="13" Checked="radioButton_OrdenarPreuDesc_Checked" Foreground="White"/>
+                        <RadioButton x:Name="radioButton_OrdenarPreuAsc" Content="Menor a major" HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top" FontSize="13" Checked="radioButton_OrdenarPreuAsc_Checked" Foreground="White"/>
+                        <TextBox x:Name="textBox_OrdenarPerDurada" TextChanged="textBox_Ubicacio_TextChanged" Style="{StaticResource textBox}" Opacity="0.69" Margin="10,102,10,222" GotFocus="textBox_OrdenarPerDurada_GotFocus"/>
+                        <Button x:Name="button_ModificarUsuari" Style="{StaticResource botóNoSeleccionable}" Height="44" Width="44" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="54" Canvas.Top="496" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="0,-33,0,0" Click="button_ModificarUsuari_Click">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <ContentPresenter Content="{TemplateBinding Content}" />
                                 </ControlTemplate>
                             </Button.Template>
-                            <Image Source="/Imatges/userConfig.png" Width="40" Height="40" OpacityMask="Black" Opacity="0.77" VerticalAlignment="Center"/>
+                            <Image Source="/Imatges/userConfig.png" Width="44" Height="44" OpacityMask="Black" Opacity="0.77" VerticalAlignment="Center"/>
                         </Button>
-                        <TextBlock Margin="10,171,75,161" Style="{StaticResource titolText}" FontSize="15"><Run Language="es-es" Text="CATEGORIA"/></TextBlock>
-                        <TextBlock Margin="10,116,94,216" Style="{StaticResource titolText}" FontSize="15" Text="DURADA"/>
-                        <TextBlock Margin="10,62,87,270" Style="{StaticResource titolText}" FontSize="15"><Run Language="es-es" Text="UBICACIÓ"/></TextBlock>
-                        <TextBlock Margin="10,62,87,270" Style="{StaticResource titolText}" FontSize="15"><Run Language="es-es" Text="UBICACIÓ"/></TextBlock>
-                        <TextBlock Margin="45,30,45,294" Style="{StaticResource titolText}" FontSize="20"><Run Language="es-es" Text="FILTRES:"/></TextBlock>
-                        <Button x:Name="button_EliminarFiltres" Style="{StaticResource botóNoSeleccionable}" Height="26" Width="25" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="20,322,0,0" Click="button_EliminarFiltres_Click">
+                        <TextBlock Margin="12,140,83,192" Style="{StaticResource titolText}" FontSize="13"><Run Language="es-es" Text="CATEGORIA"/></TextBlock>
+                        <TextBlock Margin="12,85,100,247" Style="{StaticResource titolText}" FontSize="13" Text="DURADA"/>
+                        <TextBlock Margin="12,31,94,301" Style="{StaticResource titolText}" FontSize="13"><Run Language="es-es" Text="UBICACIÓ"/></TextBlock>
+                        <Button x:Name="button_EliminarFiltres" Style="{StaticResource botóNoSeleccionable}" Height="26" Width="25" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="20,278,0,0" Click="button_EliminarFiltres_Click">
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <ContentPresenter Content="{TemplateBinding Content}" />
                                 </ControlTemplate>
                             </Button.Template>
-                            <Image Source="/Imatges/basura.png" Width="25" Height="25" OpacityMask="Black" Opacity="0.77" VerticalAlignment="Center"/>
+                            <Image Source="/Imatges/reverse.png" Width="25" Height="25" OpacityMask="Black" Opacity="0.77" VerticalAlignment="Center"/>
                         </Button>
                     </Grid>
-                    <Button x:Name="buttonConsultarReserves" Content="LES MEVES RESERVES" HorizontalAlignment="Center" Style="{StaticResource botóConsultarReserves}" VerticalAlignment="Top" Height="44" Width="123" Cursor="Hand" Canvas.Left="23" Canvas.Top="434" BorderBrush="White" Click="buttonConsultarReserves_Click" FontSize="10">
+                    <Button x:Name="buttonConsultarReserves" Content="LES MEVES RESERVES" HorizontalAlignment="Left" Style="{StaticResource botóConsultarReserves}" VerticalAlignment="Top" Height="44" Width="154" Cursor="Hand" Canvas.Left="8" Canvas.Top="425" BorderBrush="White" Click="buttonConsultarReserves_Click" FontSize="13">
                         <Button.Background>
                             <SolidColorBrush Color="#FF4EB1B6" Opacity="0.95"/>
                         </Button.Background>
@@ -96,8 +94,9 @@
                                 <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" VerticalAlignment="Center" Width="144" Height="144" Grid.Column="0"/>
                                 <StackPanel Grid.Column="1" Margin="13 10 0 0">
                                     <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="20" Foreground="#FF3AA9AD"/>
-                                    <TextBlock Text="{Binding Ubicacio}" Margin="0 5 0 0" FontSize="16"/>
-                                    <TextBlock Text="{Binding Descripcio}" TextWrapping="Wrap" FontSize="16"/>
+                                    <TextBlock Text="{Binding Ubicacio, StringFormat='Ubicació: {0}'}" Margin="0 5 0 0" FontSize="16"/>
+                                    <TextBlock Text="{Binding Descripcio, StringFormat='Descripció: : {0}'}" TextWrapping="Wrap" FontSize="16"/>
+                                    <TextBlock Text="{Binding Preu, StringFormat='Preu: : {0}'}" TextWrapping="Wrap" FontSize="16"/>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
@@ -151,6 +150,14 @@
                 </ControlTemplate>
             </Button.Template>
             <Image Source="/Imatges/add_logo2.png" Width="50" Height="50" OpacityMask="Black" Opacity="0.77"/>
+        </Button>
+        <Button x:Name="button_EliminarActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_EliminarActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="540,487,0,0" Grid.Column="1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter Content="{TemplateBinding Content}" />
+                </ControlTemplate>
+            </Button.Template>
+            <Image Source="/Imatges/basura2.png" Width="44" Height="44" OpacityMask="Black" Opacity="0.77"/>
         </Button>
     </Grid>
 </Window>

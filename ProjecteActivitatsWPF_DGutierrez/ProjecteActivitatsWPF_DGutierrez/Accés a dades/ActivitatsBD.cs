@@ -117,5 +117,81 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             Connexio.Desconnectar();
             return llistaActivitats;
         }
+        public List<int> ObtenirIdActivitats(int idUsuariAct)
+        {
+            List<int> llistaIdActivitats = new List<int>();
+
+            try
+            {
+                string obtenirIdActivitat = $"SELECT id_activitat FROM activitats WHERE usuariCreador = {idUsuariAct}";
+                MySqlCommand command = new MySqlCommand(obtenirIdActivitat, Connexio.Connectar());
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("id_activitat");
+
+                    llistaIdActivitats.Add(id);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error a l'obtenir les activitats de la BD: " + ex.Message);
+            }
+            Connexio.Desconnectar();
+            return llistaIdActivitats;
+        }
+        public void EliminarActivitat(int idActivitat)
+        {
+            try
+            {
+                MySqlConnection connection = Connexio.Connectar();
+                MySqlCommand command = connection.CreateCommand();
+                MySqlTransaction transaction;
+
+                // Iniciar transaction
+                transaction = connection.BeginTransaction();
+                command.Connection = connection;
+                command.Transaction = transaction;
+
+                try
+                {
+                    // Eliminar de la tabla 'reserves' primero
+                    string eliminarReserves = $"DELETE FROM reserves WHERE activitat = {idActivitat}";
+                    command.CommandText = eliminarReserves;
+                    command.ExecuteNonQuery();
+
+                    // Eliminar de la tabla 'usuari_activitat'
+                    string eliminarUsuariActivitat = $"DELETE FROM usuari_activitat WHERE activitat_id = {idActivitat}";
+                    command.CommandText = eliminarUsuariActivitat;
+                    command.ExecuteNonQuery();
+
+                    // Eliminar de la tabla 'activitats'
+                    string eliminarActivitat = $"DELETE FROM activitats WHERE id_activitat = {idActivitat}";
+                    command.CommandText = eliminarActivitat;
+                    command.ExecuteNonQuery();
+
+                    // Confirmar la transacción
+                    transaction.Commit();
+
+                    MessageBox.Show("Activitat eliminada correctament!");
+                }
+                catch (Exception ex)
+                {
+                    // Revertir la transacción en caso de error
+                    transaction.Rollback();
+                    MessageBox.Show("Error en l'execució de la transacció: " + ex.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error a l'obrir la BD: " + ex.Message);
+            }
+            finally
+            {
+                Connexio.Desconnectar();
+            }
+        }
     }
 }
