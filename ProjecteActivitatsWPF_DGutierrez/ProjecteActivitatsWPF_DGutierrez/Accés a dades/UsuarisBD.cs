@@ -76,5 +76,25 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             Connexio.Desconnectar();
             return llistaUsuaris;
         }
+        public void ModificarUsuari(int idUsuari, string nouNom, string nouCognom, string nouNomUsuari, string nouCorreu, string novaContrasenya, DateTime novaDataNaix, bool nouModeCreador)
+        {
+            try
+            {
+                string modificarUsuari = $"UPDATE usuaris SET nom = '{nouNom}', cognom = '{nouCognom}', nomUsuari = '{nouNomUsuari}', correu = '{nouCorreu}', contrasenya = '{novaContrasenya}', dataNaix = '{novaDataNaix.ToString("yyyy-MM-dd")}', modeCreador = {(nouModeCreador ? 1 : 0)} WHERE id_usuari = {idUsuari}";
+                MySqlCommand command = new MySqlCommand(modificarUsuari, Connexio.Connectar());
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Usuari modificat correctament!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error a l'obrir la BD: " + ex.Message);
+            }
+            finally
+            {
+                Connexio.Desconnectar();
+            }
+        }
+
     }
 }

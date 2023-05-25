@@ -68,7 +68,7 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="textBox_Contrasenya" Style="{StaticResource textBox}" Text="Contrasenya" Opacity="0.4"/>
+                        <PasswordBox x:Name="passwordBox_Contrasenya" Style="{StaticResource textBox}" Opacity="0.4" Password="123456789"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -83,7 +83,7 @@
                     </Grid>
                 </Border>
             </Grid>
-            <RadioButton x:Name="radioButton_ModeCreador" Content="Mode creador" HorizontalAlignment="Center" Margin="0 7 0 0" FontSize="15"/>
+            <CheckBox x:Name="checkBox_ModeCreador" Content="Mode creador" HorizontalAlignment="Center" Margin="0 7 0 0" FontSize="17"/>
         </StackPanel>
 
         <!-- Botons de sortir i minimitzar -->
@@ -142,6 +142,6 @@
             </Button.Template>
             <Image Source="/Imatges/returnBlue.png" Width="40" Height="40" OpacityMask="Black" Opacity="0.77"/>
         </Button>
-        <Button x:Name="button_ModificarDades" Content="CREAR" Style="{StaticResource botóIniciarSessio}" Margin="125,499,125,50" Click="button_ModificarDades_Click"/>
+        <Button x:Name="button_ModificarDades" Content="MODIFICAR" Style="{StaticResource botóIniciarSessio}" Margin="125,499,125,50" Click="button_ModificarDades_Click"/>
     </Grid>
 </Window>
