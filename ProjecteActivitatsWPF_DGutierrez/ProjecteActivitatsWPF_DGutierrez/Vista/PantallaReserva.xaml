@@ -10,11 +10,26 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
-    
+
     <Grid>
         <Border Background="White" CornerRadius="10">
-            <TextBlock x:Name="textBlock_ActivitatReservar" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" VerticalAlignment="Top" Width="324" FontSize="22" FontWeight="Bold" Foreground="#3aa9ad"><Run Language="es-es" Text="Reservar"/><Run Text=" activitat:"/><LineBreak/><Run Text=":"/></TextBlock>
+            <TextBlock x:Name="textBlock_ActivitatReservar" HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" VerticalAlignment="Top" Width="324" FontSize="22" FontWeight="Bold" Foreground="#3aa9ad" Text="Reservar activitat:"/>
         </Border>
+
+        <Grid x:Name="gridResumReserva" HorizontalAlignment="Center" Height="220" Margin="0,254,0,0" VerticalAlignment="Top" Width="356">
+            <TextBlock Text="RESUM DE LA RESERVA" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="184" FontSize="15" FontWeight="UltraLight" Foreground="Black"/>
+            <Label Content="Activitat:" HorizontalAlignment="Left" Margin="48,46,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+            <Label Content="Data de reserva:" HorizontalAlignment="Left" Margin="48,77,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+            <Label Content="Persones:" HorizontalAlignment="Left" Margin="48,108,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+            <Label Content="Preu unitari:" HorizontalAlignment="Left" Margin="48,139,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+            <Label Content="Preu final:" HorizontalAlignment="Left" Margin="48,170,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+
+            <TextBlock x:Name="textBlock_ResumNomActivitat" HorizontalAlignment="Left" Margin="119,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontStyle="Italic"/>
+            <TextBlock x:Name="textBlock_ResumData" HorizontalAlignment="Left" Margin="162,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontStyle="Italic"/>
+            <TextBlock x:Name="textBlock_ResumNumPersones" HorizontalAlignment="Left" Margin="121,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontStyle="Italic"/>
+            <TextBlock x:Name="textBlock_ResumPreuActivitat" HorizontalAlignment="Left" Margin="139,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontStyle="Italic"/>
+            <TextBlock x:Name="textBlock_ResumPreuFinal" HorizontalAlignment="Left" Margin="125,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontStyle="Italic"/>
+        </Grid>
 
         <StackPanel Margin="0,69,0,50">
             <Grid Margin="0 7"/>
@@ -48,7 +63,7 @@
             <Grid Margin="0 7"/>
         </StackPanel>
 
-         <!-- Botons de sortir i minimitzar -->
+        <!-- Botons de sortir i minimitzar -->
         <Button x:Name="buttonMinimitzar"
             Background="#FFEAEAEA"
             BorderThickness="0"

@@ -99,6 +99,8 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void listBoxActivitats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            button_EliminarActivitat.Visibility = Visibility.Hidden;
+
             ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
 
             activitatSeleccionada = (Activitat)listBoxActivitats.SelectedItem;

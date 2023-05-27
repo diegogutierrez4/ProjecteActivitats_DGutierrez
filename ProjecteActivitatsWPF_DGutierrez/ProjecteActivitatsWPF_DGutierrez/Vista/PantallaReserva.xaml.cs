@@ -29,6 +29,9 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         public PantallaReserva(Usuari usuari, Activitat activitatReservar)
         {
             InitializeComponent();
+
+            gridResumReserva.Visibility = Visibility.Hidden;
+
             MySqlConnection mySqlConnection = new MySqlConnection();
             connexio = new ConnexioBD(mySqlConnection, "localhost", "3306", "root", "", "projectedb");
 
@@ -36,8 +39,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             usuariActual = usuari;
 
             activitatSeleccionada = activitatReservar;
-
-            textBlock_ActivitatReservar.Text = $"Reservar activitat: @{activitatReservar.Nom}";
         }
 
         private void buttonSortirClick(object sender, RoutedEventArgs e)
@@ -91,6 +92,14 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
             decimal preuFinal = activitatSeleccionada.Preu * numPersones;
             ReservesBD reserves = new ReservesBD(connexio);
+
+            textBlock_ResumNomActivitat.Text = activitatSeleccionada.Nom;
+            textBlock_ResumData.Text = dataReserva.ToString();
+            textBlock_ResumNumPersones.Text = numPersones.ToString();
+            textBlock_ResumPreuActivitat.Text = activitatSeleccionada.Preu.ToString();
+            textBlock_ResumPreuFinal.Text = preuFinal.ToString();
+
+            gridResumReserva.Visibility = Visibility.Visible;
 
             reserves.AfegirReserva(usuariAct, activitatSeleccionada.Id, dataReserva, numPersones, preuFinal);
         }

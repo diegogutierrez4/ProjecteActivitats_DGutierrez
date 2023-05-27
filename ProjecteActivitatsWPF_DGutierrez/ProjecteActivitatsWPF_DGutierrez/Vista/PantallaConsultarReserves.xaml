@@ -25,10 +25,20 @@
                                     </Grid.ColumnDefinitions>
                                     <Image x:Name="image_ImatgeActivitat" Source="{Binding Imatge}" Width="100" Height="100" Grid.Column="0"/>
                                     <StackPanel Grid.Column="1" Margin="9 0 0 0">
-                                        <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="17" Foreground="#FF3AA9AD"/>
-                                        <TextBlock Text="{Binding DataReserva, StringFormat='Data reserva: {0}'}" Margin="0 5 0 0" FontSize="13"/>
-                                        <TextBlock Text="{Binding NumPersones, StringFormat='Persones: {0}'}" Margin="0 5 0 0" FontSize="13"/>
-                                        <TextBlock Text="{Binding PreuFinal, StringFormat='Preu final: {0}'}" Margin="0 5 0 0" FontSize="13"/>
+                                        <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="17" Foreground="#FF3AA9AD" MaxWidth="250"/>
+                                        <TextBlock Margin="0 5 0 0" FontSize="13">
+                                            <Run FontWeight="Bold">Data reserva:</Run>
+                                            <Run Text="{Binding DataReserva}"/>
+                                        </TextBlock>
+                                        <TextBlock Margin="0 5 0 0" FontSize="13">
+                                            <Run FontWeight="Bold">Persones:</Run>
+                                            <Run Text="{Binding NumPersones}"/>
+                                        </TextBlock>
+                                        <TextBlock Margin="0 5 0 0" FontSize="13">
+                                            <Run FontWeight="Bold">Preu final:</Run>
+                                            <Run Text="{Binding PreuFinal}"/>
+                                            <Run>€</Run>
+                                        </TextBlock>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
