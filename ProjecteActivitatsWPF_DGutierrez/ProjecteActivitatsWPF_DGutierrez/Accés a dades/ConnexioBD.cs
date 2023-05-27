@@ -41,11 +41,19 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             this.Password = password;
             this.BaseDades = baseDades;
         }
+        /// <summary>
+        /// Aquest mètode és un mètode auxiliar privat que construeix i retorna la cadena de connexió a la base de dades.
+        /// </summary>
+        /// <returns>Una cadena de connexió que conté les dades del servidor, port, usuari, contrasenya i base de dades.</returns>
         private string StringConnexio()
         {
             string stringConnexio = $"server={Servidor};port={Port};user={Usuari};password={Password};database={BaseDades};";
             return stringConnexio;
         }
+        /// <summary>
+        /// Aquest mètode s'utilitza per connectar-se a la base de dades.
+        /// </summary>
+        /// <returns>Un objecte MySqlConnection que representa la connexió establerta amb la base de dades.</returns>
         public MySqlConnection Connectar()
         {
             Conection.Close();
@@ -60,33 +68,10 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             }
             return Conection;
         }
+        // Aquest mètode s'utilitza per desconnectar-se de la base de dades.
         public void Desconnectar()
         {
             Conection.Close();
         }
-        public void AfegirUsuari(string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador)
-        {
-            try
-            {
-                string connectionString = "server=localhost;port=3306;user=root;password=;database=projectedb";
-                MySqlConnection connexioBD = new MySqlConnection(connectionString);
-                connexioBD.Open();
-
-                string registrarUsuari = $"INSERT INTO usuaris (nom, cognom, nomUsuari, correu, contrasenya, dataNaix, modeCreador) VALUES ('{nom}', '{cognom}', '{nomUsuari}', '{correu}', '{contrasenya}', '{dataNaix.ToString("yyyy-MM-dd")}', {(modeCreador ? 1 : 0)})";
-                MySqlCommand command = new MySqlCommand(registrarUsuari, connexioBD);
-                command.ExecuteNonQuery();
-
-                MessageBox.Show("Usuari afegit!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error l'obrir la BD: " + ex.Message);
-            }
-            finally
-            {
-                Conection.Close();
-            }
-        }
-
     }
 }

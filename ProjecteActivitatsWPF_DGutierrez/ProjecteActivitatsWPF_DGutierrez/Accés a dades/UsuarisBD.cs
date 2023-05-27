@@ -24,6 +24,17 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         public ConnexioBD Connexio { get => connexio; set => connexio = value; }
 
         // Mètodes
+
+        /// <summary>
+        /// Aquest mètode s'utilitza per afegir un nou usuari a la base de dades.
+        /// </summary>
+        /// <param name="nom">El nom de l'usuari.</param>
+        /// <param name="cognom">El cognom de l'usuari.</param>
+        /// <param name="nomUsuari">El nom d'usuari de l'usuari.</param>
+        /// <param name="correu">El correu electrònic de l'usuari.</param>
+        /// <param name="contrasenya">La contrasenya de l'usuari.</param>
+        /// <param name="dataNaix">La data de naixement de l'usuari.</param>
+        /// <param name="modeCreador">Indica si l'usuari té el mode creador habilitat.</param>
         public void AfegirUsuari(string nom, string cognom, string nomUsuari, string correu, string contrasenya, DateTime dataNaix, bool modeCreador)
         {
             try
@@ -43,6 +54,11 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                 Connexio.Desconnectar();
             }
         }
+
+        /// <summary>
+        /// Aquest mètode s'utilitza per obtenir la llista de tots els usuaris de la base de dades.
+        /// </summary>
+        /// <returns>Una llista d'objectes Usuari que conté la informació dels usuaris obtinguts.</returns>
         public List<Usuari> ObtenirUsuaris()
         {
             List<Usuari> llistaUsuaris = new List<Usuari>();
@@ -76,6 +92,18 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             Connexio.Desconnectar();
             return llistaUsuaris;
         }
+
+        /// <summary>
+        /// Aquest mètode s'utilitza per modificar les dades d'un usuari existent a la base de dades.
+        /// </summary>
+        /// <param name="idUsuari">L'ID de l'usuari que es vol modificar.</param>
+        /// <param name="nouNom">El nou nom de l'usuari.</param>
+        /// <param name="nouCognom">El nou cognom de l'usuari.</param>
+        /// <param name="nouNomUsuari">El nou nom d'usuari de l'usuari.</param>
+        /// <param name="nouCorreu">El nou correu electrònic de l'usuari.</param>
+        /// <param name="novaContrasenya">La nova contrasenya de l'usuari.</param>
+        /// <param name="novaDataNaix">La nova data de naixement de l'usuari.</param>
+        /// <param name="nouModeCreador">El mode creador (activat/no activat) de l'usuari.</param>
         public void ModificarUsuari(int idUsuari, string nouNom, string nouCognom, string nouNomUsuari, string nouCorreu, string novaContrasenya, DateTime novaDataNaix, bool nouModeCreador)
         {
             try
@@ -95,6 +123,5 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
                 Connexio.Desconnectar();
             }
         }
-
     }
 }

@@ -157,7 +157,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjecteActivitatsWPF_DGutierrez;V1.0.0.0;component/vista/pantallareserva.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjecteActivitatsWPF_DGutierrez;component/vista/pantallareserva.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Vista\PantallaReserva.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

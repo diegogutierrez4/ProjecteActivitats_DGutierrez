@@ -53,6 +53,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
                 button_AfegirActivitat.Visibility = Visibility.Hidden;
             }
             button_EliminarActivitat.Visibility = Visibility.Hidden;
+            button_ModificarActivitat.Visibility = Visibility.Hidden;
         }
 
         // Botons
@@ -100,24 +101,29 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         private void listBoxActivitats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             button_EliminarActivitat.Visibility = Visibility.Hidden;
+            button_ModificarActivitat.Visibility = Visibility.Hidden;
 
             ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
 
             activitatSeleccionada = (Activitat)listBoxActivitats.SelectedItem;
 
-            List<int> llistaIdActivitats = activitatsBD.ObtenirIdActivitats(usuariActual.Id);
-
-            bool mostrarBotoEliminar = false;
-
-            foreach(int id in llistaIdActivitats)
+            if (activitatSeleccionada != null)
             {
-                if(activitatSeleccionada.Id == id)
-                    mostrarBotoEliminar = true;
-            }
+                List<int> llistaIdActivitats = activitatsBD.ObtenirIdActivitats(usuariActual.Id);
 
-            if(mostrarBotoEliminar)
-            {
-                button_EliminarActivitat.Visibility = Visibility.Visible;
+                bool mostrarBotonsEliminarModificar = false;
+
+                foreach (int id in llistaIdActivitats)
+                {
+                    if (activitatSeleccionada.Id == id)
+                        mostrarBotonsEliminarModificar = true;
+                }
+
+                if (mostrarBotonsEliminarModificar)
+                {
+                    button_EliminarActivitat.Visibility = Visibility.Visible;
+                    button_ModificarActivitat.Visibility = Visibility.Visible;
+                }
             }
         }
         // Filtrar
@@ -157,7 +163,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string categoriaOrdenar = comboBox_OrdenarPerCategories.Text;
 
             ActivitatsBD activitatsBD = new ActivitatsBD(connexio);
-            List<Activitat> llistaActivitats = activitatsBD.ObtenirActivitats();
 
             List<Activitat> llistaActivitatFiltrada = llistaActivitats.ToList();
 
@@ -167,15 +172,15 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
                     llistaActivitatFiltrada.Remove(activitat);
                 if (activitat.Durada != duradaOrdenar && duradaOrdenar != string.Empty)
                     llistaActivitatFiltrada.Remove(activitat);
-                if (activitat.Categoria.ToString() != categoriaOrdenar)
+                if (activitat.Categoria.ToString() != categoriaOrdenar && categoriaOrdenar != "Categoria")
                     llistaActivitatFiltrada.Remove(activitat);
             }
 
             if (radioButton_OrdenarPreuAsc.IsChecked == true)
-                llistaActivitatFiltrada.OrderBy(activitat => activitat.Preu);
+                llistaActivitatFiltrada = llistaActivitatFiltrada.OrderBy(activitat => activitat.Preu).ToList();
             if (radioButton_OrdenarPreuDesc.IsChecked == true)
             {
-                llistaActivitatFiltrada.OrderBy(activitat => activitat.Preu);
+                llistaActivitatFiltrada = llistaActivitatFiltrada.OrderBy(activitat => activitat.Preu).ToList();
                 llistaActivitatFiltrada.Reverse();
             }
             
@@ -186,8 +191,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         {
             listBoxActivitats.ItemsSource = llistaActivitats;
 
-            textBox_OrdenarPerUbicacio.Text = "Ubicació";
-            textBox_OrdenarPerDurada.Text = "Durada";
             comboBox_OrdenarPerCategories.SelectedItem = null;
             radioButton_OrdenarPreuAsc.IsChecked = false;
             radioButton_OrdenarPreuDesc.IsChecked = false;
@@ -215,6 +218,13 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             llistaActivitats = activitatsBD.ObtenirActivitats();
 
             listBoxActivitats.ItemsSource = llistaActivitats;
+        }
+
+        private void button_ModificarActivitat_Click(object sender, RoutedEventArgs e)
+        {
+            PantallaModificarActivitat modificarActivitat = new PantallaModificarActivitat(usuariActual, activitatSeleccionada);
+            modificarActivitat.Show();
+            this.Close();
         }
     }
 }

@@ -113,7 +113,7 @@
                 </ListBox>
                 <Button x:Name="buttonReservarActivitat" Content="RESERVAR" Click="buttonReservarActivitat_Click" HorizontalAlignment="Center" Style="{StaticResource botóIniciarSessio}" VerticalAlignment="Top" Height="49" Width="150" Margin="0,491,0,0" Cursor="Hand">
                     <Button.Background>
-                        <SolidColorBrush Color="#FF3AA9AD" Opacity="0.95"/>
+                        <SolidColorBrush Color="#FF3AA9AD" Opacity="0.90"/>
                     </Button.Background>
                 </Button>
             </Grid>
@@ -152,21 +152,29 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="56" Width="62" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="579,484,0,0" Grid.Column="1">
+        <Button x:Name="button_AfegirActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_AfegirActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="590,487,0,0" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <ContentPresenter Content="{TemplateBinding Content}" />
                 </ControlTemplate>
             </Button.Template>
-            <Image Source="/Imatges/add_logo2.png" Width="50" Height="50" OpacityMask="Black" Opacity="0.77"/>
+            <Image Source="/Imatges/add.png" OpacityMask="Black" Opacity="0.77" Margin="4,4,4,4"/>
         </Button>
-        <Button x:Name="button_EliminarActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_EliminarActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="524,487,0,0" Grid.Column="1">
+        <Button x:Name="button_EliminarActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="410" Click="button_EliminarActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="535,487,0,0" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <ContentPresenter Content="{TemplateBinding Content}" />
                 </ControlTemplate>
             </Button.Template>
             <Image Source="/Imatges/basura2.png" Width="44" Height="44" OpacityMask="Black" Opacity="0.77"/>
+        </Button>
+        <Button x:Name="button_ModificarActivitat" Style="{StaticResource botóNoSeleccionable}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="button_ModificarActivitat_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Margin="480,487,0,0" Grid.Column="1">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter Content="{TemplateBinding Content}" />
+                </ControlTemplate>
+            </Button.Template>
+            <Image Source="/Imatges/edit.png" OpacityMask="Black" Opacity="0.77"/>
         </Button>
     </Grid>
 </Window>

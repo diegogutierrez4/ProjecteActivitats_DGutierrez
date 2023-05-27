@@ -117,15 +117,21 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
             string nom = textBox_Nom.Text;
             string cognom = textBox_Cognom.Text;
             string nomUsuari = textBox_NomUsuari.Text;
+            string correu = textBox_Correu.Text;
             DateTime dataNaix;
 
             UsuarisBD usuarisBD = new UsuarisBD(connexio);
 
             List<Usuari> usuaris = usuarisBD.ObtenirUsuaris();
 
-            foreach(Usuari usuari in  usuaris)
+            foreach (Usuari usuari in usuaris)
             {
                 if (usuari.NomUsuari == nomUsuari)
+                {
+                    MessageBox.Show("El nom d'usuari ja existeix.");
+                    return;
+                }
+                if (usuari.Correu == correu)
                 {
                     MessageBox.Show("El nom d'usuari ja existeix.");
                     return;
@@ -136,7 +142,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
                 MessageBox.Show("La data de naixement no és vàlida.");
                 return;
             }
-            string correu = textBox_Correu.Text;
             string contrasenya1 = passwordBox_Contrasenya1.Password;
             string contrasenya2 = passwordBox_Contrasenya2.Password;
 

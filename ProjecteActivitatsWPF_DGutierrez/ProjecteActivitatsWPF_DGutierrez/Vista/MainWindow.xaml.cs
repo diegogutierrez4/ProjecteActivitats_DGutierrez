@@ -102,7 +102,7 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string url = "https://www.instagram.com/churumbeheredia1/?hl=es";
+            string url = "https://www.youtube.com/shorts/oJNZyDeNfgQ";
             Process.Start(new ProcessStartInfo
             {
                 FileName = url,

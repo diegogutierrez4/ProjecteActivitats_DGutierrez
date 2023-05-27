@@ -24,6 +24,15 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
         public ConnexioBD Connexio { get => connexio; set => connexio = value; }
 
         // Mètodes
+
+        /// <summary>
+        /// Aquest mètode s'utilitza per afegir una reserva a la base de dades.
+        /// </summary>
+        /// <param name="usuariReserva">L'ID de l'usuari que fa la reserva.</param>
+        /// <param name="activitat">L'ID de l'activitat reservada.</param>
+        /// <param name="dataReserva">La data de la reserva.</param>
+        /// <param name="numPersones">El nombre de persones per a la reserva.</param>
+        /// <param name="preuFinal">El preu final de la reserva.</param>
         public void AfegirReserva(int usuariReserva, int activitat, DateTime dataReserva, int numPersones, decimal preuFinal)
         {
             try
@@ -50,6 +59,10 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             Connexio.Desconnectar();
         }
 
+        /// <summary>
+        ///  Aquest mètode s'utilitza per obtenir totes les reserves des de la base de dades.
+        /// </summary>
+        /// <returns>Una llista de reserves que conté les dades de cada reserva.</returns>
         public List<Reserva> ObtenirReserves()
         {
             List<Reserva> llistaReserves = new List<Reserva>();
@@ -82,6 +95,11 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             return llistaReserves;
         }
 
+        /// <summary>
+        /// Aquest mètode s'utilitza per obtenir les reserves d'un usuari des de la base de dades.
+        /// </summary>
+        /// <param name="usuariId">L'ID de l'usuari per al qual es volen obtenir les reserves.</param>
+        /// <returns>Una llista de ConsultaReserva que conté les dades de cada reserva de l'usuari.</returns>
         public List<ConsultaReserva> ObtenirReservesUsuari(int usuariId)
         {
             List<ConsultaReserva> llistaReserves = new List<ConsultaReserva>();
@@ -115,6 +133,10 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
             return llistaReserves;
         }
 
+        /// <summary>
+        /// Aquest mètode s'utilitza per eliminar una reserva de la base de dades.
+        /// </summary>
+        /// <param name="idReserva">L'ID de la reserva a eliminar.</param>
         public void EliminarReserva(int idReserva)
         {
             try

@@ -27,7 +27,6 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
         Usuari usuariActual;
         Usuari usuariActualModificat;
 
-
         public PantallaModificarUsuari(Usuari usuari)
         {
             InitializeComponent();
