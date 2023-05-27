@@ -25,6 +25,7 @@
     <None Remove="ImatgesActivitat\tallerculinari.jpg" />
     <None Remove="ImatgesActivitat\timwor.png" />
     <None Remove="ImatgesActivitat\Windsurf.jpg" />
+    <None Remove="ImatgesActivitat\yoga.jpg" />
     <None Remove="Imatges\add.png" />
     <None Remove="Imatges\add_logo2.png" />
     <None Remove="Imatges\basura.png" />
@@ -73,6 +74,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="ImatgesActivitat\Windsurf.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\yoga.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imatges\add.png">

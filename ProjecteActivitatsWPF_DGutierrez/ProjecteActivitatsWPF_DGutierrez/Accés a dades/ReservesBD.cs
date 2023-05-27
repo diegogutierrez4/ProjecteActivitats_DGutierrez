@@ -106,7 +106,8 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 
             try
             {
-                string obtenirReserves = $"SELECT a.nom, a.imatge, r.id_reserva, r.dataReserva, r.numPersones, r.preuFinal FROM reserves r JOIN activitats a ON r.activitat = a.id_activitat WHERE r.usuariReserva = {usuariId}";
+                string obtenirReserves = $"SELECT a.nom, a.imatge, r.id_reserva, r.dataReserva, r.numPersones, r.preuFinal FROM reserves r " +
+                    $"JOIN activitats a ON r.activitat = a.id_activitat WHERE r.usuariReserva = {usuariId}";
                 MySqlCommand command = new MySqlCommand(obtenirReserves, Connexio.Connectar());
                 MySqlDataReader reader = command.ExecuteReader();
 
