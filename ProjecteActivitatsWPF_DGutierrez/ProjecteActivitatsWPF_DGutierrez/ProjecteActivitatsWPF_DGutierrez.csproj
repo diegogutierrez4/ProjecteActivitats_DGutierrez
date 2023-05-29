@@ -24,6 +24,7 @@
     <None Remove="ImatgesActivitat\gravel-bike-vs-mountain-bike-main.jpg" />
     <None Remove="ImatgesActivitat\tallerculinari.jpg" />
     <None Remove="ImatgesActivitat\timwor.png" />
+    <None Remove="ImatgesActivitat\volei.jpg" />
     <None Remove="ImatgesActivitat\Windsurf.jpg" />
     <None Remove="ImatgesActivitat\yoga.jpg" />
     <None Remove="Imatges\add.png" />
@@ -71,6 +72,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="ImatgesActivitat\tallerculinari.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ImatgesActivitat\volei.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="ImatgesActivitat\Windsurf.jpg">

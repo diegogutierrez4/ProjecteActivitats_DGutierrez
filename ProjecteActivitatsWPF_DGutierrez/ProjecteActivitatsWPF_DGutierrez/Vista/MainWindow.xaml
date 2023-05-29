@@ -54,7 +54,7 @@
                         <Image Source="/Imatges/instagram_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
 
-                    <Button Style="{StaticResource botóIconesIniciSessió}">
+                    <Button Style="{StaticResource botóIconesIniciSessió}" Click="Button_Click_2">
                         <Image Source="/Imatges/facebook_logo.png" Width="22" Height="22" OpacityMask="Black" Opacity="0.77"/>
                     </Button>
                 </StackPanel>

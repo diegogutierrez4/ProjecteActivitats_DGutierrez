@@ -60,16 +60,17 @@ namespace ProjecteActivitatsWPF_DGutierrez.Accés_a_dades
 
                 try
                 {
-                    // Insertar a la taula 'activitats'
-                    string registrarActivitat = $"INSERT INTO activitats (nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, imatge) VALUES ('{nom}', '{ubicacio}', '{categoria}', '{descripcio}', '{durada}', @preu, {usuariCreador}, '{imatge}')";
+                    // Insert a la taula 'activitats'
+                    string registrarActivitat = $"INSERT INTO activitats (nom, ubicacio, categoria, descripcio, durada, preu, usuariCreador, imatge) " +
+                        $"VALUES ('{nom}', '{ubicacio}', '{categoria}', '{descripcio}', '{durada}', @preu, {usuariCreador}, '{imatge}')";
                     command.CommandText = registrarActivitat;
                     command.Parameters.AddWithValue("@preu", preu);
                     command.ExecuteNonQuery();
 
-                    // Obtener ID de l'actividad insertada anteriorment
+                    // Obtenir ID de l'actividad insertada anteriorment
                     int idActivitat = (int)command.LastInsertedId;
 
-                    // Insertar a la taula 'usuari_activitat'
+                    // Insert a la taula 'usuari_activitat'
                     string registrarUsuariActivitat = $"INSERT INTO usuari_activitat (usuari_id, activitat_id) VALUES ({usuariCreador}, {idActivitat})";
                     command.CommandText = registrarUsuariActivitat;
                     command.ExecuteNonQuery();

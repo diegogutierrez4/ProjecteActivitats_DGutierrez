@@ -112,7 +112,17 @@ namespace ProjecteActivitatsWPF_DGutierrez.Vista
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string url = "https://olvidona.com/";
+            string url = "https://www.youtube.com/shorts/mq4eMfRYg0Y";
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            string url = "https://www.youtube.com/watch?v=6DcinsRPR5s&list=PL7UKN3Qg8HNO19kHMWhRtpz0g8656sOZI&index=12";
             Process.Start(new ProcessStartInfo
             {
                 FileName = url,
